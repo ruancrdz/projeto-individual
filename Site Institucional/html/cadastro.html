@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>GYM - CADASTRO</title>
+</head>
+
+<body class="cadastro">
+
+    <div class="box-navbar">
+        <h2>GYM</h2>
+        <ul class="navbar">
+            <li><a href="index.html">INÍCIO</a></li>
+            <li> | </li>
+            <li><a href="sobre.html">SOBRE</a></li>
+            <li> | </li>
+            <li><a href="login.html">LOGIN</a></li>
+        </ul>
+    </div>
+
+    <div class="box-cadastro">
+        <h1>Cadastro</h1>
+        <input id="input_nome" placeholder="INSIRA SEU NOME">
+        <input id="input_sobrenome" placeholder="INSIRA SEU SOBRENOME">
+        <input id="input_email" placeholder="INSIRA SEU E-MAIL">
+        <input id="input_senha" placeholder="INSIRA SUA SENHA" type="password">
+        <button onclick="cadastrar()"><a href="login.html">CADASTRAR</a></button>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 GYM. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>
+<script>
+
+    function cadastrar() {
+        alert(`Cadastro efetuado com sucesso!`)
+    }
+
+</script>

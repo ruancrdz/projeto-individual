@@ -1,0 +1,356 @@
+* {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    text-decoration: none;
+    color: white;
+}
+
+.index,
+.simulador,
+.cadastro,
+.login,
+.dashboard {
+    background-image: url(https://www.actionacademia.com.br/background2.jpg);
+    height: 100%;
+    background-repeat: no-repeat;
+}
+
+.box-navbar {
+    width: 100%;
+    height: 15%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-bottom: solid red;
+    border-radius: 30px;
+}
+
+.navbar {
+    width: 20%;
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    font-size: large;
+    font-weight: 700;
+}
+
+.box-navbar .navbar a {
+    text-decoration: none;
+    color: white;
+}
+
+.box-navbar .navbar a:hover {
+    color: red;
+}
+
+.box-navbar .navbar .underline {
+    text-decoration: underline red 5px;
+}
+
+.index .container-banner {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 15%;
+}
+
+.index .box-mensagem {
+    color: white;
+    font-size: large;
+}
+
+.index .box-mensagem h1 span {
+    color: red;
+    animation: mudar-cor 2s infinite;
+}
+
+@keyframes mudar-cor {
+    0% {
+        color: red;
+    }
+
+    50% {
+        color: white;
+    }
+}
+
+.index .box-botao {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: space-between;
+}
+
+.index .box-botao .botao {
+    width: 300px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.index .box-botao .botao:hover {
+    transform: scale(1.2);
+}
+
+.index .box-botao .botao a {
+    font-size: xx-large;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    border-radius: 30px;
+    padding: 5%;
+    border-bottom: solid red;
+}
+
+.index .box-botao .botao a:hover {
+    background-color: rgba(255, 0, 0, 0.7);
+    border-bottom: solid black;
+}
+
+footer {
+    background-color: rgba(255, 0, 0, 0.7);
+    color: white;
+    padding: 20px;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+.container-footer {
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+p {
+    margin: 0;
+    font-size: 14px;
+}
+
+.simulador .calculadora {
+    width: 30%;
+    height: 400px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-bottom: solid red;
+    border-radius: 30px;
+    margin: auto;
+    margin-top: 2%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    justify-content: space-evenly;
+}
+
+.simulador .calculadora input,
+select {
+    width: 90%;
+    height: 10%;
+    text-align: center;
+    color: white;
+    background-color: rgba(0, 0, 0, 0);
+    border: solid red;
+    border-radius: 30px;
+    font-size: larger;
+}
+
+.simulador .calculadora button {
+    width: 45%;
+    height: 10%;
+    text-align: center;
+    color: white;
+    background-color: rgba(0, 0, 0, 0);
+    border: solid red;
+    border-radius: 30px;
+    font-size: larger;
+    cursor: pointer;
+}
+
+.simulador .calculadora button:hover {
+    color: white;
+    background-color: rgba(255, 0, 0, 0.7);
+    border: solid black;
+}
+
+.simulador .calculadora button {
+    transition: transform 0.3s ease-in-out;
+}
+
+.simulador .calculadora button:hover {
+    transform: scale(1.2);
+}
+
+
+.simulador .calculadora option {
+    color: black;
+}
+
+.simulador .calculadora ::placeholder {
+    color: white;
+}
+
+.simulador .mensagem {
+    width: 30%;
+    height: 400px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-bottom: solid red;
+    border-radius: 30px;
+    margin: auto;
+    margin-top: 2%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    justify-content: space-evenly;
+    font-size: x-large;
+}
+
+.simulador .container-simulador {
+    display: flex;
+}
+
+.cadastro .box-cadastro {
+    width: 30%;
+    height: 400px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-bottom: solid red;
+    border-radius: 30px;
+    margin: auto;
+    margin-top: 2%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    justify-content: space-evenly;
+}
+
+.cadastro .box-cadastro input {
+    width: 90%;
+    height: 10%;
+    text-align: center;
+    color: white;
+    background-color: rgba(0, 0, 0, 0);
+    border: solid red;
+    border-radius: 30px;
+    font-size: larger;
+}
+
+.cadastro .box-cadastro button {
+    width: 45%;
+    height: 10%;
+    text-align: center;
+    color: white;
+    background-color: rgba(0, 0, 0, 0);
+    border: solid red;
+    border-radius: 30px;
+    font-size: larger;
+    cursor: pointer;
+}
+
+.cadastro .box-cadastro button:hover {
+    color: white;
+    background-color: rgba(255, 0, 0, 0.7);
+    border: solid black;
+}
+
+.cadastro .box-cadastro button {
+    transition: transform 0.3s ease-in-out;
+}
+
+.cadastro .box-cadastro button:hover {
+    transform: scale(1.2);
+}
+
+.cadastro .box-cadastro ::placeholder {
+    color: white;
+}
+
+.login .box-login {
+    width: 30%;
+    height: 400px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-bottom: solid red;
+    border-radius: 30px;
+    margin: auto;
+    margin-top: 2%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    justify-content: space-evenly;
+}
+
+.login .box-login input {
+    width: 90%;
+    height: 10%;
+    text-align: center;
+    color: white;
+    background-color: rgba(0, 0, 0, 0);
+    border: solid red;
+    border-radius: 30px;
+    font-size: larger;
+}
+
+.login .box-login button {
+    width: 45%;
+    height: 10%;
+    text-align: center;
+    color: white;
+    background-color: rgba(0, 0, 0, 0);
+    border: solid red;
+    border-radius: 30px;
+    font-size: larger;
+    cursor: pointer;
+}
+
+.login .box-login button:hover {
+    color: white;
+    background-color: rgba(255, 0, 0, 0.7);
+    border: solid black;
+}
+
+.login .box-login button {
+    transition: transform 0.3s ease-in-out;
+}
+
+.login .box-login button:hover {
+    transform: scale(1.2);
+}
+
+.login .box-login ::placeholder {
+    color: white;
+}
+
+.dashboard .box-dashboard {
+    width: 300px;
+    height: 300px;
+}
+
+.dashboard .perfil img {
+    height: 100px;
+    width: 100px;
+    align-self: center;
+}
+
+.dashboard .box-dashboard {
+    width: 80%;
+    height: 100%;
+    display: flex;
+    margin-left: 10%;
+    justify-content: space-around;
+}
+
+.dashboard .box-dashboard .perfil {
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 250px;
+    border-radius: 30px;
+    margin-top: 8%;
+    font-size: large;
+}
+
+.dashboard .box-dashboard .grafico {
+    height: 50%;
+    width: 50%;
+    align-self: center;
+}

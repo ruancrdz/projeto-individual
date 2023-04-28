@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>GYM - DASHBOARD</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body class="dashboard">
+
+    <div class="box-navbar">
+        <h2>GYM</h2>
+        <ul class="navbar">
+            <li><a href="">PERFIL</a></li>
+            <li> | </li>
+            <li><a href="login.html">LOGOUT</a></li>
+        </ul>
+    </div>
+
+    <div class="box-dashboard">
+
+        <div class="perfil">
+            <img src="https://cdn-icons-png.flaticon.com/512/2964/2964514.png" alt="Foto de Perfil">
+            <ul>Usuário</ul>
+            <ul>18 anos</ul>
+            <ul>80kg</ul>
+            <ul>168cm</ul>
+        </div>
+
+        <div class="grafico"><canvas id="grafico-calorias"></canvas></div>
+
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 GYM. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>
+
+<script>
+    // Dados do gráfico
+    var dados = {
+        labels: ["Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado", "Domingo"],
+        datasets: [
+            {
+                label: "Consumo de calorias",
+                backgroundColor: "red",
+                borderColor: "white",
+                borderWidth: 1,
+                data: [1800, 2200, 2000, 1950, 1900, 2300, 2100],
+            }
+        ]
+    };
+
+    // Opções do gráfico
+    var opcoes = {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true,
+                }
+            }]
+        }
+    };
+
+    // Renderiza o gráfico
+    var grafico = new Chart(document.getElementById("grafico-calorias"), {
+        type: 'bar',
+        data: dados,
+        options: opcoes
+    });
+</script>
