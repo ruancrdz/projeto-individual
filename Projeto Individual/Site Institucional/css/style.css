@@ -9,7 +9,8 @@
 .cadastro,
 .login,
 .dashboard,
-.perfil {
+.perfil,
+.sobre {
     background-image: url(https://www.actionacademia.com.br/background2.jpg);
     height: 100%;
     background-repeat: no-repeat;
@@ -329,6 +330,7 @@ select {
 .dashboard .box-perfil img {
     height: 100px;
     width: 100px;
+    margin-top: 5%;
     align-self: center;
 }
 
@@ -350,6 +352,12 @@ select {
     margin-top: 4%;
     font-size: large;
     border-bottom: solid red;
+    transform: scale(1);
+    transition: transform 0.5s ease-in-out;
+}
+
+.dashboard .box-dashboard .box-perfil:hover {
+    transform: scale(1.2);
 }
 
 .dashboard .box-dashboard .grafico {
@@ -360,7 +368,15 @@ select {
     border-radius: 30px;
     border-bottom: solid red;
     margin-top: 4%;
+    transform: scale(1);
+    transition: transform 0.5s ease-in-out;
+    ;
 }
+
+.dashboard .box-dashboard .grafico:hover {
+    transform: scale(1.2);
+}
+
 
 .dashboard .box-dashboard .grafico canvas font {
     color: white;
@@ -385,7 +401,7 @@ select {
     height: 100%;
     width: auto;
     border-radius: 30px;
-    margin-top: 4%;
+    margin-top: 2%;
     font-size: large;
     border-bottom: solid red;
 }
@@ -407,7 +423,7 @@ select {
     height: fit-content;
     width: fit-content;
     border-radius: 30px;
-    margin-top: 4%;
+    margin-top: 2%;
     font-size: large;
     border-bottom: solid red;
     text-align: center;
@@ -434,9 +450,10 @@ select {
 
 .perfil .botao {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 1%;
+    margin-top: 0%;
 }
 
 .perfil .botao button,
@@ -460,5 +477,44 @@ select {
 .perfil .botao a:hover {
     background-color: rgba(255, 0, 0, 0.7);
     border: solid black;
+    transform: scale(1.2);
+}
+
+.sobre .box-sobre {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-top: 7%;
+}
+
+.sobre .box-sobre img {
+    width: 500px;
+    height: 300px;
+    border-radius: 30px;
+    border-bottom: solid red;
+    transform: scale(1);
+    transition: transform 0.5s ease-in-out;
+    ;
+}
+
+.sobre .box-sobre img:hover {
+    transform: scale(1.2);
+}
+
+.sobre .box-sobre .mensagem {
+    width: 300px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-bottom: solid red;
+    border-radius: 30px;
+    padding: 2%;
+    height: fit-content;
+    font-size: larger;
+    text-align: center;
+    transform: scale(1);
+    transition: transform 0.5s ease-in-out;
+    ;
+}
+
+.sobre .box-sobre .mensagem:hover {
     transform: scale(1.2);
 }
