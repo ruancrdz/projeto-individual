@@ -59,6 +59,12 @@
 .index .box-mensagem {
     color: white;
     font-size: large;
+    transform: scale(1);
+    transition: transform 0.5s ease-in-out;
+}
+
+.index .box-mensagem:hover {
+    transform: scale(1.2);
 }
 
 .index .box-mensagem h1 span {
@@ -134,12 +140,18 @@ p {
     border-bottom: solid red;
     border-radius: 30px;
     margin: auto;
-    margin-top: 2%;
+    margin-top: 4%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     justify-content: space-evenly;
+    transform: scale(1);
+    transition: transform 0.5s ease-in-out;
+}
+
+.simulador .calculadora:hover {
+    transform: scale(1.2);
 }
 
 .simulador .calculadora input,
@@ -197,13 +209,19 @@ select {
     border-radius: 30px;
     margin: auto;
     margin-right: -15%;
-    margin-top: 2%;
+    margin-top: 4%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     justify-content: space-evenly;
     font-size: x-large;
+    transform: scale(1);
+    transition: transform 0.5s ease-in-out;
+}
+
+.simulador .mensagem:hover {
+    transform: scale(1.2);
 }
 
 .simulador .container-simulador {
@@ -217,12 +235,18 @@ select {
     border-bottom: solid red;
     border-radius: 30px;
     margin: auto;
-    margin-top: 2%;
+    margin-top: 4%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     justify-content: space-evenly;
+    transform: scale(1);
+    transition: transform 0.5s ease-in-out;
+}
+
+.cadastro .box-cadastro:hover {
+    transform: scale(1.2);
 }
 
 .cadastro .box-cadastro input {
@@ -273,12 +297,18 @@ select {
     border-bottom: solid red;
     border-radius: 30px;
     margin: auto;
-    margin-top: 2%;
+    margin-top: 4%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     justify-content: space-evenly;
+    transform: scale(1);
+    transition: transform 0.5s ease-in-out;
+}
+
+.login .box-login:hover {
+    transform: scale(1.2);
 }
 
 .login .box-login input {
@@ -349,7 +379,7 @@ select {
     height: 100%;
     width: 250px;
     border-radius: 30px;
-    margin-top: 4%;
+    margin-top: 6%;
     font-size: large;
     border-bottom: solid red;
     transform: scale(1);
@@ -365,9 +395,10 @@ select {
     width: 50%;
     align-self: center;
     background-color: rgba(255, 255, 255, 0.7);
+    padding: 1%;
     border-radius: 30px;
     border-bottom: solid red;
-    margin-top: 4%;
+    margin-top: 5%;
     transform: scale(1);
     transition: transform 0.5s ease-in-out;
     ;
@@ -375,11 +406,6 @@ select {
 
 .dashboard .box-dashboard .grafico:hover {
     transform: scale(1.2);
-}
-
-
-.dashboard .box-dashboard .grafico canvas font {
-    color: white;
 }
 
 .perfil .container-perfil .box-perfil,
@@ -429,6 +455,15 @@ select {
     text-align: center;
     font-size: larger;
     padding: 1%;
+    transform: scale(1);
+    transition: transform 0.5s ease-in-out;
+}
+
+.perfil .idade:hover,
+.peso:hover,
+.altura:hover,
+.calorias:hover {
+    transform: scale(1.2);
 }
 
 .perfil .inputs {
@@ -507,6 +542,7 @@ select {
     border-bottom: solid red;
     border-radius: 30px;
     padding: 2%;
+    margin-right: 10%;
     height: fit-content;
     font-size: larger;
     text-align: center;
