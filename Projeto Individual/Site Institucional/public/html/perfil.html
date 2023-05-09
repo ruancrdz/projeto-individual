@@ -30,7 +30,6 @@
                 <ul id="ul_idade"></ul>
                 <ul id="ul_peso"></ul>
                 <ul id="ul_altura"></ul>
-                <ul id="ul_caloriaIdeal"></ul>
             </div>
 
             <div class="inputs">
@@ -45,10 +44,6 @@
                 <div class="altura">
                     INSERIR SUA ALTURA
                     <input type="number" id="input_altura">
-                </div>
-                <div class="calorias">
-                    INSERIR QUANTIDADE DE CALORIAS IDEAL
-                    <input type="number" id="input_caloriaIdeal">
                 </div>
             </div>
 
@@ -72,14 +67,10 @@
         var idade = input_idade.value
         var peso = input_peso.value
         var altura = input_altura.value
-        var calorias = input_caloriaIdeal.value
 
         ul_idade.innerHTML = `${idade} anos`
         ul_peso.innerHTML = `${peso}kg`
         ul_altura.innerHTML = `${altura}cm`
-        ul_caloriaIdeal.innerHTML = `${calorias}kcal`
-
-
     }
 
 </script>

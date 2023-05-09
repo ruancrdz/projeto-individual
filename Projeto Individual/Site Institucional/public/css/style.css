@@ -59,12 +59,6 @@
 .index .box-mensagem {
     color: white;
     font-size: large;
-    transform: scale(1);
-    transition: transform 0.5s ease-in-out;
-}
-
-.index .box-mensagem:hover {
-    transform: scale(1.2);
 }
 
 .index .box-mensagem h1 span {
@@ -146,12 +140,6 @@ p {
     align-items: center;
     justify-content: center;
     justify-content: space-evenly;
-    transform: scale(1);
-    transition: transform 0.5s ease-in-out;
-}
-
-.simulador .calculadora:hover {
-    transform: scale(1.2);
 }
 
 .simulador .calculadora input,
@@ -216,12 +204,6 @@ select {
     justify-content: center;
     justify-content: space-evenly;
     font-size: x-large;
-    transform: scale(1);
-    transition: transform 0.5s ease-in-out;
-}
-
-.simulador .mensagem:hover {
-    transform: scale(1.2);
 }
 
 .simulador .container-simulador {
@@ -241,12 +223,6 @@ select {
     align-items: center;
     justify-content: center;
     justify-content: space-evenly;
-    transform: scale(1);
-    transition: transform 0.5s ease-in-out;
-}
-
-.cadastro .box-cadastro:hover {
-    transform: scale(1.2);
 }
 
 .cadastro .box-cadastro input {
@@ -303,12 +279,6 @@ select {
     align-items: center;
     justify-content: center;
     justify-content: space-evenly;
-    transform: scale(1);
-    transition: transform 0.5s ease-in-out;
-}
-
-.login .box-login:hover {
-    transform: scale(1.2);
 }
 
 .login .box-login input {
@@ -382,12 +352,6 @@ select {
     margin-top: 6%;
     font-size: large;
     border-bottom: solid red;
-    transform: scale(1);
-    transition: transform 0.5s ease-in-out;
-}
-
-.dashboard .box-dashboard .box-perfil:hover {
-    transform: scale(1.2);
 }
 
 .dashboard .box-dashboard .grafico {
@@ -527,13 +491,7 @@ select {
     height: 300px;
     border-radius: 30px;
     border-bottom: solid red;
-    transform: scale(1);
-    transition: transform 0.5s ease-in-out;
     ;
-}
-
-.sobre .box-sobre img:hover {
-    transform: scale(1.2);
 }
 
 .sobre .box-sobre .mensagem {
@@ -546,11 +504,4 @@ select {
     height: fit-content;
     font-size: larger;
     text-align: center;
-    transform: scale(1);
-    transition: transform 0.5s ease-in-out;
-    ;
-}
-
-.sobre .box-sobre .mensagem:hover {
-    transform: scale(1.2);
 }
