@@ -10,7 +10,8 @@
 .login,
 .dashboard,
 .perfil,
-.sobre {
+.sobre,
+.game {
     background-image: url(https://www.actionacademia.com.br/background2.jpg);
     height: 100%;
     background-repeat: no-repeat;
@@ -29,7 +30,7 @@
 }
 
 .navbar {
-    width: 20%;
+    width: 30%;
     display: flex;
     justify-content: space-between;
     list-style: none;
@@ -351,7 +352,7 @@ select {
     border-radius: 30px;
     margin-top: 6%;
     font-size: large;
-    border-bottom: solid red;
+    border: solid red;
 }
 
 .dashboard .box-dashboard .grafico {
@@ -504,4 +505,82 @@ select {
     height: fit-content;
     font-size: larger;
     text-align: center;
+}
+
+.game .box-game {
+    width: 30%;
+    height: 500px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-bottom: solid red;
+    border-radius: 30px;
+    margin: auto;
+    margin-top: 2%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    justify-content: space-evenly;
+    text-align: center;
+    color: white;
+}
+
+
+.game .box-game h1 {
+    font-size: 300%
+}
+.game .box-game p {
+    font-size: x-large
+}
+
+.game .box-game .contador {
+    font-size: xx-large
+}
+
+.game .box-game button {
+    width: 30%;
+    height: 25%;
+    text-align: center;
+    color: white;
+    background-color: rgba(0, 0, 0, 0);
+    border: solid red;
+    border-radius: 100%;
+    font-size: larger;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+}
+
+.game .box-game button:hover {
+    background-color: rgba(255, 0, 0, 0.7);
+    border: solid black;
+    transform: scale(1.2);
+}
+
+.game .trofeu {
+    margin-bottom: 10%;
+}
+
+.game .container-game {
+    display: flex
+}
+
+.game .box-trofeu {
+    width: 10%;
+    height: 500px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border: solid red;
+    border-radius: 30px;
+    margin: auto;
+    margin-top: 2%;
+    margin-right: -20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    justify-content: space-evenly;
+    text-align: center;
+    color: white;
+}
+
+.game .box-trofeu .mensagem {
+    font-size: xx-large;
 }
