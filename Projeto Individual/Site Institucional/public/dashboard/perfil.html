@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GYM - PERFIL</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/funcoes.js"></script>
+</head>
+
+<body>
+
+    <body class="perfil">
+
+        <div class="box-navbar">
+            <h2>GYM</h2>
+            <ul class="navbar">
+                <li><a href="dashboard.html">DASHBOARD</a></li>
+                <li> | </li>
+                <li class="underline"><a href="perfil.html">PERFIL</a></li>
+                <li> | </li>
+                <li><a href="simulador2.html">SIMULADOR</a></li>
+                <li> | </li>
+                <li><a href="../login.html">LOGOUT</a></li>
+            </ul>
+        </div>
+
+
+        <div class="container-perfil">
+            <div class="box-perfil">
+                <img src="https://assets.stickpng.com/thumbs/585e4beacb11b227491c3399.png" alt="Foto de Perfil">
+                <ul id="nome"></ul>
+                <ul id="ul_idade"> anos</ul>
+                <ul id="ul_peso">kg</ul>
+                <ul id="ul_altura">cm</ul>
+            </div>
+
+            <div class="inputs">
+                <div class="idade">
+                    INSERIR SUA IDADE
+                    <input type="number" id="input_idade">
+                </div>
+                <div class="peso">
+                    INSERIR SEU PESO ATUAL
+                    <input type="number" id="input_peso">
+                </div>
+                <div class="altura">
+                    INSERIR SUA ALTURA
+                    <input type="number" id="input_altura">
+                </div>
+            </div>
+
+            <div class="botao">
+                <button onclick="salvar()">SALVAR</button>
+                <div id="div_aguardar"></div>
+            </div>
+        </div>
+
+        <footer>
+            <div class="container">
+                <p>&copy; 2023 GYM. Todos os direitos reservados.</p>
+            </div>
+        </footer>
+    </body>
+
+</html>
+<script>
+    function salvar() {
+        // div_aguardar.innerHTML = `<img width="100px" src="https://www.superescadas.com.br/wp-content/themes/escadasuper-3xceler/images/loading.gif" id="loading-gif">`;
+        // aguardar();
+
+        //Recupere o valor da nova input pelo nome do id
+        // Agora vá para o método fetch logo abaixo
+        var pesoVar = input_peso.value;
+        var idadeVar = input_idade.value
+        var alturaVar = input_altura.value;
+
+        if (pesoVar == "" || idadeVar == "" || alturaVar == "") {
+            alert("Por favor, preencha todos os campos!");
+
+            finalizarAguardar();
+            return false;
+
+        }
+
+        // Enviando o valor da nova input
+        fetch("/usuarios/salvar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                pesoServer: pesoVar,
+                idadeServer: idadeVar,
+                alturaServer: alturaVar,
+                
+            })
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+
+                alert("Dados salvos com sucesso");
+
+                // setTimeout(() => {
+                //     window.location = "login.html";
+                // }, "2000")
+
+                limparFormulario();
+                finalizarAguardar();
+            } else {
+                throw ("Houve um erro ao inserir os dados");
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+            finalizarAguardar();
+        });
+
+        return false;
+    }
+
+    // function () {
+    //     div_mensagem.style.display = "none"
+    // }
+</script>

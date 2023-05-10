@@ -97,9 +97,43 @@ function cadastrar(req, res) {
     }
 }
 
+function salvar(req, res) {
+    // Crie uma variável que vá recuperar os valores do arquivo perfil.html
+    var idade = req.body.idadeServer;
+    var peso = req.body.pesoServer;
+    var altura = req.body.alturaServer;
+
+    // Faça as validações dos valores
+    if (idade == undefined) {
+        res.status(400).send("Seu peso está undefined!");
+    } else if (peso == undefined) {
+        res.status(400).send("Seu altura está undefined!");
+    } else if (altura == undefined) {
+        res.status(400).send("Sua idade está undefined!");
+        
+        // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
+        usuarioModel.cadastrar(idade, peso, altura)
+            .then(
+                function (resultado) {
+                    res.json(resultado);
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log(
+                        "\nHouve um erro ao realizar o cadastro! Erro: ",
+                        erro.sqlMessage
+                    );
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    }
+}
+
 module.exports = {
     entrar,
     cadastrar,
     listar,
-    testar
+    testar,
+    salvar
 }

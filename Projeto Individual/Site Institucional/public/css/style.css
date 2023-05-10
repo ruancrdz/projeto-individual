@@ -213,12 +213,12 @@ select {
 
 .cadastro .box-cadastro {
     width: 30%;
-    height: 400px;
+    height: auto;
     background-color: rgba(0, 0, 0, 0.7);
     border-bottom: solid red;
     border-radius: 30px;
     margin: auto;
-    margin-top: 4%;
+    margin-top: 1%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -228,18 +228,19 @@ select {
 
 .cadastro .box-cadastro input {
     width: 90%;
-    height: 10%;
+    height: 30px;
     text-align: center;
     color: white;
     background-color: rgba(0, 0, 0, 0);
     border: solid red;
     border-radius: 30px;
     font-size: larger;
+    margin-bottom: 7%;
 }
 
 .cadastro .box-cadastro button {
     width: 45%;
-    height: 10%;
+    height: 35px;
     text-align: center;
     color: white;
     background-color: rgba(0, 0, 0, 0);
@@ -247,6 +248,7 @@ select {
     border-radius: 30px;
     font-size: larger;
     cursor: pointer;
+    margin-bottom: 7%;
 }
 
 .cadastro .box-cadastro button:hover {
@@ -269,12 +271,12 @@ select {
 
 .login .box-login {
     width: 30%;
-    height: 400px;
+    height: auto;
     background-color: rgba(0, 0, 0, 0.7);
     border-bottom: solid red;
     border-radius: 30px;
     margin: auto;
-    margin-top: 4%;
+    margin-top: 7%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -291,6 +293,7 @@ select {
     border: solid red;
     border-radius: 30px;
     font-size: larger;
+    margin-bottom: 7%;
 }
 
 .login .box-login button {
@@ -303,6 +306,7 @@ select {
     border-radius: 30px;
     font-size: larger;
     cursor: pointer;
+    margin-bottom: 7%;
 }
 
 .login .box-login button:hover {
@@ -509,7 +513,7 @@ select {
 
 .game .box-game {
     width: 30%;
-    height: 500px;
+    height: 450px;
     background-color: rgba(0, 0, 0, 0.7);
     border-bottom: solid red;
     border-radius: 30px;
@@ -564,8 +568,8 @@ select {
 }
 
 .game .box-trofeu {
-    width: 10%;
-    height: 500px;
+    width: 12%;
+    height: 450px;
     background-color: rgba(0, 0, 0, 0.7);
     border: solid red;
     border-radius: 30px;
@@ -583,4 +587,4 @@ select {
 
 .game .box-trofeu .mensagem {
     font-size: xx-large;
-}
+}   
