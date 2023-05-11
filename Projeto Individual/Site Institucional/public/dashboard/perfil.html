@@ -31,10 +31,10 @@
         <div class="container-perfil">
             <div class="box-perfil">
                 <img src="https://assets.stickpng.com/thumbs/585e4beacb11b227491c3399.png" alt="Foto de Perfil">
-                <ul id="nome"></ul>
-                <ul id="ul_idade"> anos</ul>
-                <ul id="ul_peso">kg</ul>
-                <ul id="ul_altura">cm</ul>
+                <ul id="ul_nome"></ul>
+                <ul id="ul_idade"></ul>
+                <ul id="ul_peso"></ul>
+                <ul id="ul_altura"></ul>
             </div>
 
             <div class="inputs">
@@ -73,11 +73,11 @@
 
         //Recupere o valor da nova input pelo nome do id
         // Agora vá para o método fetch logo abaixo
-        var pesoVar = input_peso.value;
-        var idadeVar = input_idade.value
-        var alturaVar = input_altura.value;
+        var peso = input_peso.value;
+        var idade = input_idade.value
+        var altura = input_altura.value;
 
-        if (pesoVar == "" || idadeVar == "" || alturaVar == "") {
+        if (peso == "" || idade == "" || altura == "") {
             alert("Por favor, preencha todos os campos!");
 
             finalizarAguardar();
@@ -85,46 +85,76 @@
 
         }
 
-        // Enviando o valor da nova input
-        fetch("/usuarios/salvar", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                // crie um atributo que recebe o valor recuperado aqui
-                // Agora vá para o arquivo routes/usuario.js
-                pesoServer: pesoVar,
-                idadeServer: idadeVar,
-                alturaServer: alturaVar,
-                
-            })
-        }).then(function (resposta) {
+        // // Enviando o valor da nova input
+        // fetch("/usuarios/salvar", {
+        //     method: "POST",
+        //     headers: {
+        //         "Content-Type": "application/json"
+        //     },
+        //     body: JSON.stringify({
+        //         // crie um atributo que recebe o valor recuperado aqui
+        //         // Agora vá para o arquivo routes/usuario.js
+        //         pesoServer: peso,
+        //         idadeServer: idade,
+        //         alturaServer: altura,
 
-            console.log("resposta: ", resposta);
+        //     })
+        // }).then(function (resposta) {
 
-            if (resposta.ok) {
+        //     console.log("resposta: ", resposta);
 
-                alert("Dados salvos com sucesso");
+        //     if (resposta.ok) {
 
-                // setTimeout(() => {
-                //     window.location = "login.html";
-                // }, "2000")
+        //         alert("Dados salvos com sucesso");
 
-                limparFormulario();
-                finalizarAguardar();
-            } else {
-                throw ("Houve um erro ao inserir os dados");
-            }
-        }).catch(function (resposta) {
-            console.log(`#ERRO: ${resposta}`);
-            finalizarAguardar();
-        });
+        //         // setTimeout(() => {
+        //         //     window.location = "login.html";
+        //         // }, "2000")
 
-        return false;
+        //         limparFormulario();
+        //         finalizarAguardar();
+        //     } else {
+        //         throw ("Houve um erro ao inserir os dados");
+        //     }
+        // }).catch(function (resposta) {
+        //     console.log(`#ERRO: ${resposta}`);
+        //     finalizarAguardar();
+        // });
+
+        // return false;
+
+        localStorage.setItem("idade", idade)
+        localStorage.setItem("altura", altura)
+        localStorage.setItem("peso", peso)
+
+        var nome = localStorage.getItem("nome")
+        var idade = localStorage.getItem("idade")
+        var altura = localStorage.getItem("altura")
+        var peso = localStorage.getItem("peso")
+
+        ul_nome.innerHTML = nome
+        ul_idade.innerHTML = `${idade} anos`
+        ul_altura.innerHTML = `${altura}cm`
+        ul_peso.innerHTML = `${peso}kg`
     }
 
     // function () {
     //     div_mensagem.style.display = "none"
     // }
+
+
+
+</script>
+<script>
+
+    var nome = localStorage.getItem("nome")
+    var idade = localStorage.getItem("idade")
+    var altura = localStorage.getItem("altura")
+    var peso = localStorage.getItem("peso")
+
+    ul_nome.innerHTML = `${nome}`
+    ul_idade.innerHTML = `${idade} anos`
+    ul_altura.innerHTML = `${altura}cm`
+    ul_peso.innerHTML = `${peso}kg`
+
 </script>

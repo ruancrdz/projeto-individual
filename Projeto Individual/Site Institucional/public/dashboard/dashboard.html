@@ -29,11 +29,11 @@
 
         <div class="box-perfil">
             <img src="https://assets.stickpng.com/thumbs/585e4beacb11b227491c3399.png" alt="Foto de Perfil">
-            <ul id="nome"></ul>
-            <ul id="idade"> anos</ul>
-            <ul id="peso">kg</ul>
-            <ul id="altura">cm</ul>
-            <ul id="caloria">kcal</ul>
+            <ul id="ul_nome"></ul>
+            <ul id="ul_idade"></ul>
+            <ul id="ul_peso"></ul>
+            <ul id="ul_altura"></ul>
+            <ul id="ul_caloria"></ul>
         </div>
 
         <div class="grafico">
@@ -123,6 +123,16 @@
 
 <script>
 
+    var nome = localStorage.getItem("nome")
+    var idade = localStorage.getItem("idade")
+    var altura = localStorage.getItem("altura")
+    var peso = localStorage.getItem("peso")
+    var caloria = localStorage.getItem("caloriaIdeal")
 
+    ul_nome.innerHTML = `${nome}`
+    ul_idade.innerHTML = `${idade} anos`
+    ul_altura.innerHTML = `${altura}cm`
+    ul_peso.innerHTML = `${peso}kg`
+    ul_caloria.innerHTML = `${caloria}kcal`
     
 </script>
