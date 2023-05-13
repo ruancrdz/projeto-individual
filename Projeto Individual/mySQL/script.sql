@@ -37,30 +37,11 @@ constraint fkUsuarioRefeicoes foreign key (fkUsuario) references usuario(idUsuar
 
 desc refeicoes;
 
-insert into usuario values
-	(null, "Ruan", "Cardozo", "ruan.montanari@sptech.school", "#Gf52610741855");
-    
 select * from usuario;
-    
-insert into dados values
-	(null, 18, 80, 168, 2000, 1);
-    
+
 select * from dados;
 
-insert into refeicoes values
-	(null, "Arroz e Feijão", "Almoço", "200", "2023-10-02", 1),
-	(null, "Macarrão Alho e Óleo", "Janta", "400", "2023-10-02", 1),
-	(null, "Arroz e Feijão", "Almoço", "400", "2023-10-03", 1),
-	(null, "Macarrão Alho e Óleo", "Janta", "400", "2023-10-03", 1),
-	(null, "Arroz e Feijão", "Almoço", "500", "2023-10-04", 1),
-	(null, "Arroz e Feijão", "Janta", "200", "2023-10-04", 1),
-	(null, "Arroz e Feijão", "Almoço", "200", "2023-10-05", 1),
-	(null, "Arroz e Feijão", "Janta", "200", "2023-10-05", 1),
-	(null, "Arroz e Feijão", "Almoço", "500", "2023-10-06", 1),
-	(null, "Pizza", "Janta", "500", "2023-10-06", 1);
-    
 select * from refeicoes;
-
 -- Error Code: 1175. You are using safe update mode and you tried to update a table without a WHERE that uses a KEY column. 
 -- To disable safe mode, toggle the option in Preferences -> SQL Editor and reconnect.	0.000 sec
 
