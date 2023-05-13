@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>GYM - CONTATO</title>
+</head>
+
+<body class="contato">
+
+    <div class="box-navbar">
+        <h2>GYM</h2>
+        <ul class="navbar">
+            <li><a href="index.html">INÍCIO</a></li>
+            <li> | </li>
+            <li><a href="sobre.html">SOBRE</a></li>
+            <li> | </li>
+            <li><a href="cadastro.html">CADASTRO</a></li>
+            <li> | </li>
+            <li><a href="login.html">LOGIN</a></li>
+        </ul>
+    </div>
+
+    <div class="box-contato">
+        <h1>Contato</h1>
+        <input id="input_nome" placeholder="INSIRA SEU NOME">
+        <input id="input_assunto" placeholder="ASSUNTO DO E-MAIL">
+        <div><textarea id="textarea_mensagem" placeholder="INSIRA SUA MENSAGEM"></textarea></div>
+        <button onclick="enviar()">ENVIAR</button>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 GYM. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>
+<script>
+
+    function enviar() {
+
+        var nome = input_nome.value
+        var assunto = input_assunto.value
+        var mensagem = textarea_mensagem.value
+
+        var link = "https://mail.google.com/mail/?view=cm&fs=1&to=" + "ruan.montanari@sptech.school" + "&su=" + encodeURIComponent(assunto) + "&body=" + encodeURIComponent(mensagem);
+
+        // encodeURIComponent() é usada para codificar caracteres especiais em uma string, tornando-a segura para ser transmitida em uma URL.
+
+        alert(`Ola ${nome}, estamos te encaminhando para o envio do email!`)
+
+        window.open(link, "_blank");
+    }
+
+</script>

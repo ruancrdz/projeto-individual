@@ -33,7 +33,7 @@ function entrar(req, res) {
     } else if (senha == undefined) {
         res.status(400).send("Sua senha está indefinida!");
     } else {
-        
+
         usuarioModel.entrar(email, senha)
             .then(
                 function (resultado) {
@@ -77,7 +77,7 @@ function cadastrar(req, res) {
     } else if (sobrenome == undefined) {
         res.status(400).send("Seu sobrenome está undefined!")
     } else {
-        
+
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
         usuarioModel.cadastrar(nome, sobrenome, email, senha)
             .then(
@@ -110,7 +110,7 @@ function salvar(req, res) {
         res.status(400).send("Seu altura está undefined!");
     } else if (altura == undefined) {
         res.status(400).send("Sua idade está undefined!");
-        
+
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
         usuarioModel.cadastrar(idade, peso, altura)
             .then(

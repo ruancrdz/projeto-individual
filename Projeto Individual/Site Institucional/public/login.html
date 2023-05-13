@@ -21,7 +21,7 @@
             <li> | </li>
             <li><a href="cadastro.html">CADASTRO</a></li>
             <li> | </li>
-            <li class="underline">LOGIN</li>
+            <li class="underline"><a href="login.html">LOGIN</a></li>
         </ul>
     </div>
 
@@ -30,7 +30,7 @@
         <input id="input_email" placeholder="INSIRA SEU E-MAIL">
         <input id="input_senha" placeholder="INSIRA SUA SENHA" type="password">
         <button onclick="logar()">ENTRAR</button>
-        <div id="div_aguardar"></div> 
+        <div id="div_aguardar"></div>
     </div>
 
     <footer>
@@ -44,73 +44,73 @@
 </html>
 <script>
     function logar() {
-      div_aguardar.innerHTML = `<img width="100px" src="https://www.superescadas.com.br/wp-content/themes/escadasuper-3xceler/images/loading.gif" id="loading-gif">`;
-      aguardar();
-  
-      var emailVar = input_email.value;
-      var senhaVar = input_senha.value;
-  
-          if (emailVar == "" || senhaVar == "") {
-              cardErro.style.display = "block"
-              mensagem_erro.innerHTML = "Preencha todos os dados";
-              finalizarAguardar();
-              return false;
-          }
-          else {
-              setInterval(sumirMensagem, 5000)
-          }
-  
-          console.log("FORM LOGIN: ", emailVar);
-          console.log("FORM SENHA: ", senhaVar);
-  
-          fetch("/usuarios/autenticar", {
-              method: "POST",
-              headers: {
-                  "Content-Type": "application/json"
-              },
-              body: JSON.stringify({
-                  emailServer: emailVar,
-                  senhaServer: senhaVar
-              })
-          }).then(function (resposta) {
-              console.log("ESTOU NO THEN DO entrar()!")
-  
-              if (resposta.ok) {
-                  console.log(resposta);
-  
-                  resposta.json().then(json => {
-                      console.log(json);
-                      console.log(JSON.stringify(json));
-  
-                      sessionStorage.EMAIL_USUARIO = json.email;
-                      sessionStorage.NOME_USUARIO = json.nome;
-                      sessionStorage.ID_USUARIO = json.id;
-  
-                      setTimeout(function () {
-                          window.location = "./dashboard/perfil.html";
-                      }, 1000); // apenas para exibir o loading
-  
-                  });
-  
-              } else {
-  
-                  console.log("Houve um erro ao tentar realizar o login!");
-  
-                  resposta.text().then(texto => {
-                      console.error(texto);
-                      finalizarAguardar(texto);
-                  });
-              }
-  
-          }).catch(function (erro) {
-              console.log(erro);
-          })
-  
-          return false;
-      }
-  
-      function sumirMensagem() {
-          cardErro.style.display = "none"
-      }
-  
-  </script>
+        div_aguardar.innerHTML = `<img width="100px" src="https://www.superescadas.com.br/wp-content/themes/escadasuper-3xceler/images/loading.gif" id="loading-gif">`;
+        aguardar();
+
+        var emailVar = input_email.value;
+        var senhaVar = input_senha.value;
+
+        if (emailVar == "" || senhaVar == "") {
+            cardErro.style.display = "block"
+            mensagem_erro.innerHTML = "Preencha todos os dados";
+            finalizarAguardar();
+            return false;
+        }
+        else {
+            setInterval(sumirMensagem, 5000)
+        }
+
+        console.log("FORM LOGIN: ", emailVar);
+        console.log("FORM SENHA: ", senhaVar);
+
+        fetch("/usuarios/autenticar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                emailServer: emailVar,
+                senhaServer: senhaVar
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!")
+
+            if (resposta.ok) {
+                console.log(resposta);
+
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+
+                    sessionStorage.EMAIL_USUARIO = json.email;
+                    sessionStorage.NOME_USUARIO = json.nome;
+                    sessionStorage.ID_USUARIO = json.id;
+
+                    setTimeout(function () {
+                        window.location = "./dashboard/perfil.html";
+                    }, 1000); // apenas para exibir o loading
+
+                });
+
+            } else {
+
+                console.log("Houve um erro ao tentar realizar o login!");
+
+                resposta.text().then(texto => {
+                    console.error(texto);
+                    finalizarAguardar(texto);
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+
+        return false;
+    }
+
+    function sumirMensagem() {
+        cardErro.style.display = "none"
+    }
+
+</script>
