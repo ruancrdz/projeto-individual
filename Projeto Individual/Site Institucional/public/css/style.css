@@ -19,12 +19,12 @@
 .contato {
     background-image: url(https://www.actionacademia.com.br/background2.jpg);
     height: 100%;
-    width: 100%;
+    width: 99%;
     background-repeat: no-repeat;
 }
 
 .box-navbar {
-    width: 100%;
+    width: 99%;
     height: 15%;
     display: flex;
     justify-content: space-around;
@@ -116,7 +116,7 @@
 footer {
     background-color: rgba(255, 0, 0, 0.7);
     color: white;
-    padding: 20px;
+    padding: 5px;
     text-align: center;
     position: fixed;
     bottom: 0;
@@ -360,9 +360,14 @@ select {
     height: 100%;
     width: 250px;
     border-radius: 30px;
-    margin-top: 6%;
+    margin-top: 2%;
     font-size: large;
     border: solid red;
+    align-items: center;
+}
+
+.dashboard .box-dashboard .box-perfil ul {
+    margin-right: 15%;
 }
 
 .dashboard .box-dashboard .grafico {
@@ -408,8 +413,9 @@ select {
 }
 
 .perfil .box-perfil img {
-    height: 100px;
-    width: 100px;
+    height: 80px;
+    width: 80px;
+    padding: 0.8%;
     align-self: center;
 }
 
@@ -657,7 +663,7 @@ select {
 
 .contato textarea {
     max-width: 100%;
-    width: 400px;
+    width: 365px;
     max-height: 20px;
     resize: none;
     padding: 1.5%;
