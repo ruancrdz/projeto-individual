@@ -223,6 +223,7 @@ select {
     background-color: rgba(0, 0, 0, 0.7);
     border-bottom: solid red;
     border-radius: 30px;
+    border-top-right-radius: 0%;
     margin: auto;
     margin-top: 1%;
     display: flex;
@@ -693,4 +694,87 @@ select {
 
 .contato textarea::-webkit-scrollbar-thumb:hover {
     background-color: #555;
+}
+
+.cadastro .container-cadastro {
+    display: flex;
+}
+
+.cadastro .box-cadastro-2 {
+    width: 30%;
+    height: auto;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-bottom: solid red;
+    border-radius: 30px;
+    border-top-left-radius: 0%;
+    margin: auto;
+    margin-top: 1%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    justify-content: space-evenly;
+    margin-left: -20%;
+}
+
+.cadastro .box-cadastro-2 input {
+    width: 90%;
+    height: 30px;
+    text-align: center;
+    color: white;
+    background-color: rgba(0, 0, 0, 0);
+    border: solid red;
+    border-radius: 30px;
+    font-size: larger;
+    margin-bottom: 7%;
+}
+
+.cadastro .box-cadastro-2 button {
+    width: 45%;
+    height: 35px;
+    text-align: center;
+    color: white;
+    background-color: rgba(0, 0, 0, 0);
+    border: solid red;
+    border-radius: 30px;
+    font-size: larger;
+    cursor: pointer;
+    margin-bottom: 7%;
+}
+
+.cadastro .box-cadastro-2 button:hover {
+    color: white;
+    background-color: rgba(255, 0, 0, 0.7);
+    border: solid black;
+}
+
+.cadastro .box-cadastro-2 button {
+    transition: transform 0.3s ease-in-out;
+}
+
+.cadastro .box-cadastro-2 button:hover {
+    transform: scale(1.2);
+}
+
+.cadastro .box-cadastro-2 ::placeholder {
+    color: white;
+}
+
+.borda-quadrada {
+    border: 2px solid white;
+    padding: 5px;
+    width: fit-content;
+}
+
+.cadastro .box-cadastro-2 select {
+    margin-bottom: 5%;
+    height: 40px;
+}
+
+select {
+    appearance: none;
+}
+
+.cadastro .box-cadastro-2 option {
+    color: black;
 }

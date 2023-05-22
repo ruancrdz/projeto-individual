@@ -12,7 +12,7 @@
 <body class="simulador">
 
     <div class="box-navbar">
-        <h2><a href="index.html">GYM</a></h2>
+        <h2><a class="borda-quadrada" href="index.html">GYM</a></h2>
         <ul class="navbar">
             <li><a href="index.html">INÍCIO</a></li>
             <li> | </li>
@@ -72,13 +72,14 @@
         } else if (genero == "F") {
             tmb = 447.6 + (9.2 * peso) + (3.1 * altura) - (4.3 * idade)
         }
-        if (genero == "M" || genero == "F") {
+        if (idade == "" || altura == "" || peso == "" || genero == "") {
+            alert("Por favor, preencha todos os campos!")
+        }
+        else if (genero == "M" || genero == "F") {
             var caloriasDiarias = tmb * atividadeFisica - 500
             alert(`Para emagrecer, você precisa ingerir ${caloriasDiarias} calorias por dia.`)
         }
-        else {
-            alert("Gênero inválido.")
-        }
+
 
 
     }

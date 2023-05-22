@@ -13,7 +13,7 @@
 <body class="cadastro">
 
     <div class="box-navbar">
-        <h2><a href="index.html">GYM</a></h2>
+        <h2><a class="borda-quadrada" href="index.html">GYM</a></h2>
         <ul class="navbar">
             <li><a href="index.html">INÍCIO</a></li>
             <li> | </li>
@@ -25,14 +25,30 @@
         </ul>
     </div>
 
-    <div class="box-cadastro">
-        <h1>Cadastro</h1>
-        <input id="input_nome" placeholder="INSIRA SEU NOME">
-        <input id="input_sobrenome" placeholder="INSIRA SEU SOBRENOME">
-        <input id="input_email" placeholder="INSIRA SEU E-MAIL">
-        <input id="input_senha" placeholder="INSIRA SUA SENHA" type="password">
-        <button onclick="cadastrar()">CADASTRAR</button>
-        <div id="div_aguardar"></div>
+    <div class="container-cadastro">
+
+        <div class="box-cadastro">
+            <h1>Cadastro</h1>
+            <input id="input_nome" placeholder="INSIRA SEU NOME">
+            <input id="input_sobrenome" placeholder="INSIRA SEU SOBRENOME">
+            <input id="input_email" placeholder="INSIRA SEU E-MAIL">
+            <input id="input_senha" placeholder="INSIRA SUA SENHA" type="password">
+        </div>
+
+        <div class="box-cadastro-2">
+            <h1>Dados</h1>
+            <input id="input_idade" placeholder="INSIRA SUA IDADE">
+            <input id="input_peso" placeholder="INSIRA SEU PESO">
+            <input id="input_altura" placeholder="INSIRA SUA ALTURA">
+            <select id="select_genero">
+                <option value=null>INSIRA SEU GÊNERO</option>
+                <option value="M">M</option>
+                <option value="F">F</option>
+            </select>
+            <button onclick="cadastrar()">CADASTRAR</button>
+            <div id="div_aguardar"></div>
+        </div>
+
     </div>
 
     <footer>
@@ -47,8 +63,8 @@
 </html>
 <script>
     function cadastrar() {
-        div_aguardar.innerHTML = `<img width="100px" src="https://www.superescadas.com.br/wp-content/themes/escadasuper-3xceler/images/loading.gif" id="loading-gif">`;
-        aguardar();
+        // div_aguardar.innerHTML = `<img width="100px" src="https://www.superescadas.com.br/wp-content/themes/escadasuper-3xceler/images/loading.gif" id="loading-gif">`;
+        // aguardar();
 
         //Recupere o valor da nova input pelo nome do id
         // Agora vá para o método fetch logo abaixo
@@ -56,19 +72,45 @@
         var sobrenomeVar = input_sobrenome.value
         var emailVar = input_email.value;
         var senhaVar = input_senha.value;
+        var idadeVar = input_idade.value;
+        var pesoVar = input_peso.value;
+        var alturaVar = input_altura.value;
+        var generoVar = select_genero.value;
+        var caloriasDiarias =
 
-        if (nomeVar == "" || sobrenomeVar == "" || emailVar == "" || senhaVar == "") {
+            localStorage.setItem("nome", nomeVar)
+        localStorage.setItem("idade", idadeVar)
+        localStorage.setItem("peso", pesoVar)
+        localStorage.setItem("altura", alturaVar)
+
+        var atividadeFisica = 1.2
+        // Calcular TMB, taxa metabólica basal
+        var tmb = 0
+        if (generoVar == "M") {
+            tmb = 88.36 + (13.4 * pesoVar) + (4.8 * alturaVar) + (5.7 * idadeVar)
+        } else if (generoVar == "F") {
+            tmb = 447.6 + (9.2 * pesoVar) + (3.1 * alturaVar) - (4.3 * idadeVar)
+        }
+
+        var caloriasDiarias = tmb * atividadeFisica - 500
+
+        localStorage.setItem("caloriaIdeal", caloriasDiarias.toFixed())
+
+
+
+
+        if (nomeVar == "" || sobrenomeVar == "" || emailVar == "" || senhaVar == "" || idadeVar == "" || pesoVar == "" || alturaVar == "") {
             alert("Por favor, preencha todos os campos!");
 
             finalizarAguardar();
             return false;
 
-        } else if (senhaVar.length > 6 && senhaVar.indexOf('!') != -1 || senhaVar.indexOf('@') != -1 || senhaVar.indexOf('#') != -1 || senhaVar.indexOf('$') != -1 || senhaVar.indexOf('%') != -1 || senhaVar.indexOf('&') != -1 || senhaVar.indexOf('*') != -1 || senhaVar.indexOf('(') != -1 || senhaVar.indexOf(')') != -1 || senhaVar.indexOf('¨') != -1 || senhaVar.indexOf('-') != -1 || senhaVar.indexOf('_') != -1 || senhaVar.indexOf('=') != -1 || senhaVar.indexOf('+') != -1 || senhaVar.indexOf('§') != -1 || senhaVar.indexOf('´') != -1 || senhaVar.indexOf('`') != -1 || senhaVar.indexOf('[') != -1 || senhaVar.indexOf(']') != -1 || senhaVar.indexOf('{') != -1 || senhaVar.indexOf('}') != -1 || senhaVar.indexOf('ª') != -1 || senhaVar.indexOf('º') != -1 || senhaVar.indexOf('~') != -1 || senhaVar.indexOf('^') != -1 || senhaVar.indexOf(';') != -1 || senhaVar.indexOf(':') != -1 || senhaVar.indexOf('.') != -1 || senhaVar.indexOf('>') != -1 || senhaVar.indexOf('<') != -1 || senhaVar.indexOf(',') != -1 || senhaVar.indexOf('/') != -1 || senhaVar.indexOf('?') != -1 || senhaVar.indexOf('°') != -1 || senhaVar.indexOf('|') != -1 || senhaVar.indexOf(`'`) != -1 || senhaVar.indexOf('"') != -1) {
+        } else if (senhaVar.length >= 6) {
             setInterval(5000)
         }
 
         else {
-            alert("Senha deve conter mais de 6 caracteres e um caractere especial");
+            alert("Senha deve conter mais de 6 caracteres");
             finalizarAguardar();
             return false;
         }
@@ -85,7 +127,11 @@
                 nomeServer: nomeVar,
                 sobrenomeServer: sobrenomeVar,
                 emailServer: emailVar,
-                senhaServer: senhaVar
+                senhaServer: senhaVar,
+                idadeServer: idadeVar,
+                pesoServer: pesoVar,
+                alturaServer: alturaVar,
+                generoServer: generoVar
             })
         }).then(function (resposta) {
 
@@ -110,8 +156,6 @@
         });
 
         return false;
-
-        localStorage.setItem("nome", nomeVar)
     }
 
 </script>
