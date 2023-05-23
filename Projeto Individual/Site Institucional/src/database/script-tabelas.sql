@@ -5,38 +5,26 @@
 /*
 comandos para mysql - banco local - ambiente de desenvolvimento
 */
-create database GYM;
-use GYM;
-
 create table usuario (
-idUsuario int primary key auto_increment,
+cpf char(11) primary key,
 nome varchar(45),
 sobrenome varchar(45),
 email varchar(45),
-senha varchar(45)
+senha varchar(256)
 );
+
+desc usuario;
 
 create table dados (
 idDados int auto_increment,
 idade int,
-peso decimal,
-altura decimal,
-caloriaIdeal decimal,
-fkUsuario int,
-constraint fkUsuarioDados foreign key (fkUsuario) references usuario(idUsuario),
-constraint pkComposta primary key (idDados, fkUsuario)
-);
-
-
-create table refeicoes (
-idRefeicoes int primary key auto_increment,
-nome varchar(45),
-descricao varchar(45),
-calorias decimal,
-dt date,
--- dt datetime default current_timestamp,
-fkUsuario int,
-constraint fkUsuarioRefeicoes foreign key (fkUsuario) references usuario(idUsuario)
+peso int,
+altura int,
+genero char(1),
+caloriaIdeal int,
+fkUsuario char(11),
+foreign key (fkUsuario) references usuario(cpf),
+primary key (idDados, fkUsuario)
 );
 
 /*
