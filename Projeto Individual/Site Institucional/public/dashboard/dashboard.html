@@ -36,8 +36,41 @@
         </div>
 
         <div class="grafico">
-            <canvas id="grafico-calorias" height="20px" width="60px"></canvas>
-            <canvas id="grafico-calorias2" height="20px" width="60px"></canvas>
+            <canvas id="graficocalorias" height="20px" width="60px"></canvas>
+            <canvas id="graficocalorias2" height="20px" width="60px"></canvas>
+            <div class="botao">
+                <button id="emagrecer" onclick="emagrecer()">Emagrecer</button>
+                <button id="manter" onclick="manter()">Manter</button>
+                <button id="engordar" onclick="engordar()">Engordar</button>
+            </div>
+        </div>
+
+        <div class="refeicao_agua">
+
+            <div class="refeicao">
+
+                <img height="70px" src="https://icones.pro/wp-content/uploads/2021/06/symbole-burger-rouge.png">
+
+                <div id="contador_caloria" class="contador"></div>
+
+                <div class="botao">
+                    <button onclick="diminuir_caloria()">-</button>
+                    <button onclick="aumentar_caloria()">+</button>
+                </div>
+            </div>
+
+            <div class="agua">
+
+                <img height="70px" src="https://icones.pro/wp-content/uploads/2022/05/icone-de-l-eau-rouge.png">
+
+                <div id="contador_agua" class="contador"></div>
+
+                <div class="botao">
+                    <button onclick="diminuir_agua()">-</button>
+                    <button onclick="aumentar_agua()">+</button>
+                </div>
+            </div>
+
         </div>
 
     </div>
@@ -45,7 +78,7 @@
     <footer>
         <div class="container">
             <p>&copy; 2023 GYM. Todos os direitos reservados.</p>
-            <a href="contato.html">CONTATO</a>
+            <a href="../contato.html">CONTATO</a>
         </div>
     </footer>
 
@@ -54,16 +87,19 @@
 </html>
 
 <script>
+
+    var caloria = localStorage.getItem("caloriaIdeal")
+
     // Dados do gráfico
     var dados = {
         labels: ["Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado", "Domingo"],
         datasets: [
             {
-                label: "Ranking Academia",
+                label: "Dias recomendados para ir na Academia",
                 backgroundColor: "red",
                 borderColor: "black",
                 borderWidth: 1,
-                data: [true, true, false, true, true, false, false],
+                data: [true, true, false, true, true, true, false],
             }
         ]
     };
@@ -80,24 +116,35 @@
     };
 
     // Renderiza o gráfico
-    var grafico = new Chart(document.getElementById("grafico-calorias"), {
+    var grafico = new Chart(document.getElementById("graficocalorias"), {
         type: 'bar',
         data: dados,
         options: opcoes
     });
 </script>
 
+
+
 <script>
+
+    var segunda = Number(caloria)
+    var terca = Number(caloria)
+    var quarta = Number(caloria)
+    var quinta = Number(caloria)
+    var sexta = Number(caloria)
+    var sabado = Number(caloria)
+    var domingo = Number(caloria)
+
     // Dados do gráfico
     var dados = {
         labels: ["Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado", "Domingo"],
         datasets: [
             {
-                label: "Consumo de calorias",
+                label: "Consumo de calorias recomendado",
                 backgroundColor: "red",
                 borderColor: "black",
                 borderWidth: 1,
-                data: [1800, 2200, 2000, 1950, 1900, 2300, 2100],
+                data: [segunda, terca, quarta, quinta, sexta, sabado, domingo],
             }
         ]
     };
@@ -114,11 +161,61 @@
     };
 
     // Renderiza o gráfico
-    var grafico = new Chart(document.getElementById("grafico-calorias2"), {
+    var grafico = new Chart(document.getElementById("graficocalorias2"), {
         type: 'line',
         data: dados,
         options: opcoes
     });
+
+    function emagrecer() {
+
+        if (segunda < 1000)  {
+            alert("Caloria não pode ser menor que zero")
+        } else {
+            // Atualizar as calorias
+            segunda -= 1000;
+            terca -= 1000;
+            quarta -= 500;
+            quinta -= 1000;
+            sexta -= 1000;
+            sabado -= 500;
+            domingo -= 500;
+
+            // Atualizar os dados do gráfico
+            grafico.data.datasets[0].data = [segunda, terca, quarta, quinta, sexta, sabado, domingo];
+            grafico.update();
+        }
+    }
+
+
+    function manter() {
+        segunda = Number(caloria);
+        terca = Number(caloria);
+        quarta = Number(caloria);
+        quinta = Number(caloria);
+        sexta = Number(caloria);
+        sabado = Number(caloria);
+        domingo = Number(caloria);
+
+        // Atualizar os dados do gráfico
+        grafico.data.datasets[0].data = [segunda, terca, quarta, quinta, sexta, sabado, domingo];
+        grafico.update();
+    }
+
+    function engordar() {
+        segunda += 1000;
+        terca += 1000;
+        quarta += 500;
+        quinta += 1000;
+        sexta += 1000;
+        sabado += 500;
+        domingo += 500;
+
+        // Atualizar os dados do gráfico
+        grafico.data.datasets[0].data = [segunda, terca, quarta, quinta, sexta, sabado, domingo];
+        grafico.update();
+    }
+
 </script>
 
 <script>
@@ -128,11 +225,61 @@
     var altura = localStorage.getItem("altura")
     var peso = localStorage.getItem("peso")
     var caloria = localStorage.getItem("caloriaIdeal")
+    var ml = localStorage.getItem("mlIdeal")
+    var kcalAtual = localStorage.getItem("kcalAtual")
+    var mlAtual = localStorage.getItem("mlAtual")
 
     ul_nome.innerHTML = `${nome}`
     ul_idade.innerHTML = `${idade} anos`
     ul_altura.innerHTML = `${altura}cm`
     ul_peso.innerHTML = `${peso}kg`
     ul_caloria.innerHTML = `${caloria}kcal`
+
+</script>
+
+<script>
+
+    kcalAtual = Number(kcalAtual)
+    mlAtual = Number(mlAtual)
+    contador_caloria.innerHTML = `${kcalAtual}kcal / ${caloria}kcal`
+    contador_agua.innerHTML = `${mlAtual}ml / ${ml}ml`
+
+    function aumentar_caloria() {
+        contador_caloria.innerHTML = `${kcalAtual + 200}kcal / ${caloria}kcal`
+        kcalAtual += 200
+        localStorage.setItem("kcalAtual", kcalAtual)
+        if (kcalAtual >= caloria) {
+            alert("Parabéns, bateu sua meta diária!")
+        }
+    }
+
+    function diminuir_caloria() {
+        if (kcalAtual < 200) {
+            alert("Caloria não pode ficar negativa")
+        } else {
+            contador_caloria.innerHTML = `${kcalAtual - 200}kcal / ${caloria}kcal`
+            kcalAtual -= 200
+            localStorage.setItem("kcalAtual", kcalAtual)
+        }
+    }
+
+    function aumentar_agua() {
+        contador_agua.innerHTML = `${mlAtual + 200}ml / ${ml}ml`
+        mlAtual += 200
+        localStorage.setItem("mlAtual", mlAtual)
+        if (mlAtual >= ml) {
+            alert("Parabéns, bateu sua meta diária!")
+        }
+    }
+
+    function diminuir_agua() {
+        if (mlAtual < 200) {
+            alert("ML não pode ficar negativo")
+        } else {
+            contador_agua.innerHTML = `${mlAtual - 200}ml / ${ml}ml`
+            mlAtual -= 200
+            localStorage.setItem("mlAtual", mlAtual)
+        }
+    }
 
 </script>

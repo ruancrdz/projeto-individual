@@ -100,6 +100,11 @@
 
         localStorage.setItem("caloriaIdeal", caloriasDiarias.toFixed())
 
+        var aguaPorQuilo = 30; // quantidade de ml de água recomendada por quilo de peso
+        var mlRecomendados = aguaPorQuilo * pesoVar; // calcula a quantidade recomendada de ml de água
+
+        localStorage.setItem("mlIdeal", mlRecomendados)
+
         if (nomeVar == "" || sobrenomeVar == "" || cpfVar == "" || emailVar == "" || senhaVar == "" || idadeVar == "" || pesoVar == "" || alturaVar == "") {
             alert("Por favor, preencha todos os campos!");
 

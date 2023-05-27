@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -60,7 +60,7 @@
         <footer>
             <div class="container">
                 <p>&copy; 2023 GYM. Todos os direitos reservados.</p>
-                <a href="contato.html">CONTATO</a>
+                <a href="../contato.html">CONTATO</a>
             </div>
         </footer>
     </body>
@@ -80,11 +80,32 @@
 
         }
 
+        var genero = localStorage.getItem("genero")
+        var atividadeFisica = 1.2
+        // Calcular TMB, taxa metabólica basal
+        var tmb = 0
+        if (genero == "M") {
+            tmb = 88.36 + (13.4 * peso) + (4.8 * altura) + (5.7 * idade)
+        } else if (genero == "F") {
+            tmb = 447.6 + (9.2 * peso) + (3.1 * altura) - (4.3 * idade)
+        }
+
+        var caloriasDiarias = tmb * atividadeFisica - 500
+
+        var caloriaIdeal = caloriasDiarias.toFixed()
+
+        localStorage.setItem("caloriaIdeal", caloriasDiarias.toFixed())
+
+        var aguaPorQuilo = 30; // quantidade de ml de água recomendada por quilo de peso
+        var mlRecomendados = aguaPorQuilo * peso; // calcula a quantidade recomendada de ml de água
+
+        localStorage.setItem("mlIdeal", mlRecomendados)
+
         // // Enviando o valor da nova input
         // fetch("/usuarios/salvar", {
         //     method: "POST",
         //     headers: {
-        //         "Content-Type": "application/json"
+        //         "Content-Type": "application/json"   
         //     },
         //     body: JSON.stringify({
         //         // crie um atributo que recebe o valor recuperado aqui
