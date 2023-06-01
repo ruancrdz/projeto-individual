@@ -75,6 +75,38 @@
 
     </div>
 
+    <div class="box-analytics">
+        <div class="analytics critico">
+            <h2>Crítico</h2>
+            <div id="div_critico_negativo"></div>
+        </div>
+        <div class="analytics emergencia">
+            <h2>Emergência</h2>
+            <div id="div_emergencia_negativo"></div>
+        </div>
+        <div class="analytics alerta">
+            <h2>Alerta</h2>
+            <div id="div_alerta_negativo"></div>
+        </div>
+        <div class="analytics ideal">
+            <h2>Ideal</h2>
+            <div id="div_ideal"></div>
+        </div>
+        <div class="analytics alerta">
+            <h2>Alerta</h2>
+            <div id="div_alerta_positivo"></div>
+        </div>
+        <div class="analytics emergencia">
+            <h2>Emergência</h2>
+            <div id="div_emergencia_positivo"></div>
+        </div>
+        <div class="analytics critico">
+            <h2>Crítico</h2>
+            <div id="div_critico_positivo"></div>
+        </div>
+
+    </div>
+
     <footer>
         <div class="container">
             <p>&copy; 2023 GYM. Todos os direitos reservados.</p>
@@ -236,6 +268,14 @@
     ul_altura.innerHTML = `${altura}cm`
     ul_peso.innerHTML = `${peso}kg`
     ul_caloria.innerHTML = `${caloria}kcal`
+
+    div_critico_negativo.innerHTML = `${Number(caloria) - 1500}`
+    div_emergencia_negativo.innerHTML = `${Number(caloria) - 1000}`
+    div_alerta_negativo.innerHTML = `${Number(caloria) - 500}`
+    div_ideal.innerHTML = `${Number(caloria)}`
+    div_alerta_positivo.innerHTML = `${(Number(caloria)) + 500}`
+    div_emergencia_positivo.innerHTML = `${(Number(caloria)) + 1000}`
+    div_critico_positivo.innerHTML = `${(Number(caloria)) + 1500}`
 
 </script>
 
