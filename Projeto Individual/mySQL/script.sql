@@ -28,9 +28,8 @@ select * from usuario;
 
 select * from dados;
 
-update dados set idade = 23, peso = 200, altura = 100 where fkUsuario = "teste4@gmail.com";
-
 -- NOME / EMAIL / SENHA / IDADE / PESO / ALTURA / CALORIA IDEAL
+create view vw_ud as
 select concat(usuario.nome, " ",usuario.sobrenome) as nome	,
 	   usuario.email,
 	   usuario.senha,
@@ -38,7 +37,7 @@ select concat(usuario.nome, " ",usuario.sobrenome) as nome	,
 	   dados.peso,
 	   dados.altura,
 	   dados.caloriaIdeal,
-       dados.aguaIdeal,
-       dados.caloriaAtual,
-       dados.aguaAtual
+       dados.aguaIdeal
 from usuario join dados on email = fkUsuario;
+
+select * from vw_ud;
