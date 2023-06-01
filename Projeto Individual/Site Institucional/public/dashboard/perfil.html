@@ -1,4 +1,4 @@
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -71,7 +71,7 @@
         var peso = input_peso.value;
         var idade = input_idade.value
         var altura = input_altura.value;
-
+        var genero = sessionStorage.GENERO_USUARIO;
         if (peso == "" || idade == "" || altura == "") {
             alert("Por favor, preencha todos os campos!");
 
@@ -80,7 +80,6 @@
 
         }
 
-        var genero = localStorage.getItem("genero")
         var atividadeFisica = 1.2
         // Calcular TMB, taxa metabólica basal
         var tmb = 0
@@ -94,64 +93,56 @@
 
         var caloriaIdeal = caloriasDiarias.toFixed()
 
-        localStorage.setItem("caloriaIdeal", caloriasDiarias.toFixed())
-
         var aguaPorQuilo = 30; // quantidade de ml de água recomendada por quilo de peso
         var mlRecomendados = aguaPorQuilo * peso; // calcula a quantidade recomendada de ml de água
 
-        localStorage.setItem("mlIdeal", mlRecomendados)
+        var nome = sessionStorage.NOME_USUARIO;
+        var idade = sessionStorage.IDADE_USUARIO;
+        var altura = sessionStorage.ALTURA_USUARIO;
+        var peso = sessionStorage.PESO_USUARIO;
 
-        // // Enviando o valor da nova input
-        // fetch("/usuarios/salvar", {
-        //     method: "POST",
-        //     headers: {
-        //         "Content-Type": "application/json"   
-        //     },
-        //     body: JSON.stringify({
-        //         // crie um atributo que recebe o valor recuperado aqui
-        //         // Agora vá para o arquivo routes/usuario.js
-        //         pesoServer: peso,
-        //         idadeServer: idade,
-        //         alturaServer: altura,
-
-        //     })
-        // }).then(function (resposta) {
-
-        //     console.log("resposta: ", resposta);
-
-        //     if (resposta.ok) {
-
-        //         alert("Dados salvos com sucesso");
-
-        //         // setTimeout(() => {
-        //         //     window.location = "login.html";
-        //         // }, "2000")
-
-        //         limparFormulario();
-        //         finalizarAguardar();
-        //     } else {
-        //         throw ("Houve um erro ao inserir os dados");
-        //     }
-        // }).catch(function (resposta) {
-        //     console.log(`#ERRO: ${resposta}`);
-        //     finalizarAguardar();
-        // });
-
-        // return false;
-
-        localStorage.setItem("idade", idade)
-        localStorage.setItem("altura", altura)
-        localStorage.setItem("peso", peso)
-
-        var nome = localStorage.getItem("nome")
-        var idade = localStorage.getItem("idade")
-        var altura = localStorage.getItem("altura")
-        var peso = localStorage.getItem("peso")
-
-        ul_nome.innerHTML = nome
+        ul_nome.innerHTML = `${nome}`
         ul_idade.innerHTML = `${idade} anos`
         ul_altura.innerHTML = `${altura}cm`
         ul_peso.innerHTML = `${peso}kg`
+
+        // Enviando o valor da nova input
+        fetch("/usuarios/salvar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                pesoServer: peso,
+                idadeServer: idade,
+                alturaServer: altura,
+
+            })
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+
+                alert("Dados salvos com sucesso");
+
+                // setTimeout(() => {
+                //     window.location = "login.html";
+                // }, "2000")
+
+                limparFormulario();
+                finalizarAguardar();
+            } else {
+                throw ("Houve um erro ao inserir os dados");
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+            finalizarAguardar();
+        });
+
+        return false;
     }
 
     // function () {
@@ -163,10 +154,10 @@
 </script>
 <script>
 
-    var nome = localStorage.getItem("nome")
-    var idade = localStorage.getItem("idade")
-    var altura = localStorage.getItem("altura")
-    var peso = localStorage.getItem("peso")
+    var nome = sessionStorage.NOME_USUARIO;
+    var idade = sessionStorage.IDADE_USUARIO;
+    var altura = sessionStorage.ALTURA_USUARIO;
+    var peso = sessionStorage.PESO_USUARIO;
 
     ul_nome.innerHTML = `${nome}`
     ul_idade.innerHTML = `${idade} anos`

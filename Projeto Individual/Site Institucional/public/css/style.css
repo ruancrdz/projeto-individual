@@ -223,9 +223,8 @@ select {
     background-color: rgba(0, 0, 0, 0.7);
     border-bottom: solid red;
     border-radius: 30px;
-    border-top-right-radius: 0%;
     margin: auto;
-    margin-top: 1%;
+    margin-top: 6%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -379,8 +378,6 @@ select {
     padding: 1%;
     border-radius: 30px;
     border-bottom: solid red;
-    margin-top: 3%;
-    ;
 }
 
 .perfil .container-perfil .box-perfil,
@@ -700,15 +697,14 @@ select {
     background-color: rgba(0, 0, 0, 0.7);
     border-bottom: solid red;
     border-radius: 30px;
-    border-top-left-radius: 0%;
     margin: auto;
-    margin-top: 1%;
+    margin-top: 4%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     justify-content: space-evenly;
-    margin-left: -20%;
+    margin-left: -15%;
 }
 
 .cadastro .box-cadastro-2 input {
@@ -814,7 +810,7 @@ select {
     align-items: center;
     height: 200px;
     width: 200px;
-    margin-top: 15%;
+    margin-top: 12%;
     
 }
 
@@ -831,7 +827,7 @@ select {
     width: 30px;
     background-color: rgba(0, 0, 0, 0);
     border-color: red;
-    border-radius: 10px;
+    border-radius: 8    px;
     font-size: 100%;
     transition: transform 0.3s ease-in-out;
 

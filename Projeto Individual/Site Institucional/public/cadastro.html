@@ -31,7 +31,6 @@
             <h1>Cadastro</h1>
             <input id="input_nome" placeholder="INSIRA SEU NOME">
             <input id="input_sobrenome" placeholder="INSIRA SEU SOBRENOME">
-            <input id="input_cpf" placeholder="INSIRA SEU CPF">
             <input id="input_email" placeholder="INSIRA SEU E-MAIL">
             <input id="input_senha" placeholder="INSIRA SUA SENHA" type="password">
         </div>
@@ -71,19 +70,13 @@
         // Agora vá para o método fetch logo abaixo
         var nomeVar = input_nome.value;
         var sobrenomeVar = input_sobrenome.value
-        var cpfVar = input_cpf.value
         var emailVar = input_email.value;
         var senhaVar = input_senha.value;
         var idadeVar = input_idade.value;
         var pesoVar = input_peso.value;
         var alturaVar = input_altura.value;
         var generoVar = select_genero.value;
-        var caloriasDiarias =
-
-        localStorage.setItem("nome", nomeVar)
-        localStorage.setItem("idade", idadeVar)
-        localStorage.setItem("peso", pesoVar)
-        localStorage.setItem("altura", alturaVar)
+        var caloriasDiarias = 0
 
         var atividadeFisica = 1.2
         // Calcular TMB, taxa metabólica basal
@@ -98,14 +91,10 @@
 
         var caloriaIdeal = caloriasDiarias.toFixed()
 
-        localStorage.setItem("caloriaIdeal", caloriasDiarias.toFixed())
-
         var aguaPorQuilo = 30; // quantidade de ml de água recomendada por quilo de peso
-        var mlRecomendados = aguaPorQuilo * pesoVar; // calcula a quantidade recomendada de ml de água
-
-        localStorage.setItem("mlIdeal", mlRecomendados)
-
-        if (nomeVar == "" || sobrenomeVar == "" || cpfVar == "" || emailVar == "" || senhaVar == "" || idadeVar == "" || pesoVar == "" || alturaVar == "") {
+        var aguaIdeal = aguaPorQuilo * pesoVar; // calcula a quantidade recomendada de ml de água
+        
+        if (nomeVar == "" || sobrenomeVar == "" || emailVar == "" || senhaVar == "" || idadeVar == "" || pesoVar == "" || alturaVar == "") {
             alert("Por favor, preencha todos os campos!");
 
             finalizarAguardar();
@@ -132,14 +121,14 @@
                 // Agora vá para o arquivo routes/usuario.js
                 nomeServer: nomeVar,
                 sobrenomeServer: sobrenomeVar,
-                cpfServer: cpfVar,
                 emailServer: emailVar,
                 senhaServer: senhaVar,
                 idadeServer: idadeVar,
                 pesoServer: pesoVar,
                 alturaServer: alturaVar,
                 generoServer: generoVar,
-                caloriaIdealServer: caloriaIdeal
+                caloriaIdealServer: caloriaIdeal,
+                aguaIdealServer: aguaIdeal
             })
         }).then(function (resposta) {
 

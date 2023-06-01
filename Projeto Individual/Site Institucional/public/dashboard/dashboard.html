@@ -127,6 +127,8 @@
 
 <script>
 
+    var caloria = sessionStorage.CALORIA_USUARIO;
+
     var segunda = Number(caloria)
     var terca = Number(caloria)
     var quarta = Number(caloria)
@@ -169,7 +171,7 @@
 
     function emagrecer() {
 
-        if (segunda < 1000)  {
+        if (segunda < 1000) {
             alert("Caloria não pode ser menor que zero")
         } else {
             // Atualizar as calorias
@@ -220,12 +222,12 @@
 
 <script>
 
-    var nome = localStorage.getItem("nome")
-    var idade = localStorage.getItem("idade")
-    var altura = localStorage.getItem("altura")
-    var peso = localStorage.getItem("peso")
-    var caloria = localStorage.getItem("caloriaIdeal")
-    var ml = localStorage.getItem("mlIdeal")
+    var nome = sessionStorage.NOME_USUARIO;
+    var idade = sessionStorage.IDADE_USUARIO;
+    var altura = sessionStorage.ALTURA_USUARIO;
+    var peso = sessionStorage.PESO_USUARIO;
+    var caloria = sessionStorage.CALORIA_USUARIO;
+    var ml = sessionStorage.ML_USUARIO;
     var kcalAtual = localStorage.getItem("kcalAtual")
     var mlAtual = localStorage.getItem("mlAtual")
 
