@@ -1,15 +1,12 @@
-drop database GYM;	
 create database GYM;
 use GYM;
 
 create table usuario (
-email varchar(45) primary key,
 nome varchar(45),
 sobrenome varchar(45),
+email varchar(45) primary key,
 senha varchar(256)
 );
-
-desc usuario;
 
 create table dados (
 idDados int auto_increment,
@@ -19,17 +16,27 @@ altura int,
 genero char(1),
 caloriaIdeal int,
 aguaIdeal int,
-fkUsuario varchar(45),
-foreign key (fkUsuario) references usuario(email),
-primary key (idDados, fkUsuario)
+fkUsuarioDados varchar(45),
+foreign key (fkUsuarioDados) references usuario(email),
+primary key (idDados, fkUsuarioDados)
+);
+
+create table historico (
+idHistorico int auto_increment,
+dtHora datetime default current_timestamp,
+fkUsuarioHistorico varchar(45),
+foreign key (fkUsuarioHistorico) references usuario(email),
+primary key (idHistorico, fkUsuarioHistorico)
 );
 
 select * from usuario;	
 
 select * from dados;
 
+select * from historico;
+
 -- NOME / EMAIL / SENHA / IDADE / PESO / ALTURA / CALORIA IDEAL
-create view vw_ud as
+create view vw_udh as
 select concat(usuario.nome, " ",usuario.sobrenome) as nome	,
 	   usuario.email,
 	   usuario.senha,
@@ -37,7 +44,8 @@ select concat(usuario.nome, " ",usuario.sobrenome) as nome	,
 	   dados.peso,
 	   dados.altura,
 	   dados.caloriaIdeal,
-       dados.aguaIdeal
-from usuario join dados on email = fkUsuario;
+       dados.aguaIdeal,
+       historico.dtHora
+from usuario join dados on email = fkUsuarioDados join historico on email =fkUsuarioHistorico;
 
-select * from vw_ud;
+select * from vw_udh;

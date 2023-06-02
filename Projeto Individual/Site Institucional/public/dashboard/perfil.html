@@ -15,7 +15,7 @@
     <body class="perfil">
 
         <div class="box-navbar">
-            <h2><a class="borda-quadrada" href="index.html">GYM</a></h2>
+            <h2><a class="borda-quadrada" href="../index.html">GYM</a></h2>
             <ul class="navbar">
                 <li><a href="dashboard.html">DASHBOARD</a></li>
                 <li> | </li>
@@ -68,11 +68,12 @@
 </html>
 <script>
     function salvar() {
-        var peso = input_peso.value;
-        var idade = input_idade.value
-        var altura = input_altura.value;
+        var pesoPerfil = input_peso.value;
+        var idadePerfil = input_idade.value
+        var alturaPerfil = input_altura.value;
+
         var genero = sessionStorage.GENERO_USUARIO;
-        if (peso == "" || idade == "" || altura == "") {
+        if (pesoPerfil == "" || idadePerfil == "" || alturaPerfil == "") {
             alert("Por favor, preencha todos os campos!");
 
             finalizarAguardar();
@@ -81,7 +82,7 @@
 
         var atividadeFisica = 1.2
         // Calcular TMB, taxa metabólica basal
-        var tmb = 0
+        var tmb = Number(0)
         if (genero == "M") {
             tmb = 88.36 + (13.4 * peso) + (4.8 * altura) + (5.7 * idade)
         } else if (genero == "F") {
@@ -90,15 +91,16 @@
 
         var caloriasDiarias = tmb * atividadeFisica - 500
 
-        var caloriaIdeal = caloriasDiarias.toFixed()
+        var caloriaIdealPerfil = caloriasDiarias.toFixed()
 
         var aguaPorQuilo = 30; // quantidade de ml de água recomendada por quilo de peso
-        var mlRecomendados = aguaPorQuilo * peso; // calcula a quantidade recomendada de ml de água
+        var aguaIdealPerfil = aguaPorQuilo * peso; // calcula a quantidade recomendada de ml de água
 
         var nome = sessionStorage.NOME_USUARIO;
         var idade = sessionStorage.IDADE_USUARIO;
         var altura = sessionStorage.ALTURA_USUARIO;
         var peso = sessionStorage.PESO_USUARIO;
+        var email = sessionStorage.EMAIL_USUARIO;
 
         ul_nome.innerHTML = `${nome}`
         ul_idade.innerHTML = `${idade} anos`
@@ -114,9 +116,12 @@
             body: JSON.stringify({
                 // crie um atributo que recebe o valor recuperado aqui
                 // Agora vá para o arquivo routes/usuario.js
-                pesoServer: peso,
-                idadeServer: idade,
-                alturaServer: altura,
+                idadePerfilServer: idadePerfil,
+                pesoPerfilServer: pesoPerfil,
+                alturaPerfilServer: alturaPerfil,
+                caloriaIdealPerfilServer: caloriaIdealPerfil,
+                aguaIdealPerfilServer: aguaIdealPerfil,
+                emailServer: email,
 
             })
         }).then(function (resposta) {
@@ -126,10 +131,6 @@
             if (resposta.ok) {
 
                 alert("Dados salvos com sucesso");
-
-                // setTimeout(() => {
-                //     window.location = "login.html";
-                // }, "2000")
 
                 limparFormulario();
                 finalizarAguardar();

@@ -116,21 +116,27 @@ function cadastrar(req, res) {
 }
 
 function salvar(req, res) {
+    var idadePerfil = req.body.idadePerfilServer;
+    var pesoPerfil = req.body.pesoPerfilServer;
+    var alturaPerfil = req.body.alturaPerfilServer;
+    var caloriaIdealPerfil = req.body.caloriaIdeaPerfilServer;
+    var aguaIdealPerfil = req.body.aguaIdealPerfilServer;
     var email = req.body.emailServer;
-    var idade = req.body.idadeServer;
-    var peso = req.body.pesoServer;
-    var altura = req.body.alturaServer;
 
     if (email == undefined) {
         res.status(400).send("Seu email está undefined!");
-    } else if (idade == undefined) {
+    } else if (idadePerfil == undefined) {
         res.status(400).send("Sua idade está undefined!")
-    } else if (peso == undefined) {
+    } else if (pesoPerfil == undefined) {
         res.status(400).send("Seu peso está undefined!")
-    } else if (altura == undefined) {
+    } else if (alturaPerfil == undefined) {
         res.status(400).send("Sua altura está undefined!")
+    } else if (caloriaIdealPerfil == undefined) {
+        res.status(400).send("Suas calorias estão undefined!")
+    } else if (aguaIdealPerfil == undefined) {
+        res.status(400).send("Seus ml's recomendados estão undefined!")
     } else {
-        usuarioModel.atualizar(email, idade, peso, altura) // Assuming there is an 'atualizar' function in the 'usuarioModel'
+        usuarioModel.salvar(idadePerfil, pesoPerfil, alturaPerfil, caloriaIdealPerfil, aguaIdealPerfil, email) // Assuming there is an 'atualizar' function in the 'usuarioModel'
             .then(function () {
                 res.status(200).send("Dados atualizados com sucesso!");
             })

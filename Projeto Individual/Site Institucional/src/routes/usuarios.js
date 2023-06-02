@@ -17,7 +17,7 @@ router.post("/cadastrar", function (req, res) {
 })
 
 router.post("/salvar", function (req, res) {
-    usuarioController.cadastrar(req, res);
+    usuarioController.salvar(req, res);
 })
 
 router.post("/autenticar", function (req, res) {

@@ -16,7 +16,7 @@ function listar() {
 function entrar(email, senha) {
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function entrar(): ", email, senha)
     var instrucao = `
-        SELECT * FROM usuario JOIN dados ON email = fkUsuario WHERE email = '${email}' AND senha = sha2('${senha}', 256);
+        SELECT * FROM usuario JOIN dados ON email = fkUsuarioDados JOIN historico ON email = fkUsuarioHistorico WHERE email = '${email}' AND senha = sha2('${senha}', 256);
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
@@ -32,20 +32,24 @@ function cadastrar(nome, sobrenome, email, senha, idade, peso, altura, genero, c
         INSERT INTO usuario (nome, sobrenome, email, senha) VALUES ('${nome}', '${sobrenome}', '${email}', sha2('${senha}',256));
     `;
     var instrucao2 = `
-    INSERT INTO dados (idade, peso, altura, genero, caloriaIdeal, aguaIdeal, fkUsuario) VALUES ('${idade}', '${peso}', '${altura}', '${genero}', '${caloriaIdeal}', '${aguaIdeal}', '${email}');
+    INSERT INTO dados (idade, peso, altura, genero, caloriaIdeal, aguaIdeal, fkUsuarioDados) VALUES ('${idade}', '${peso}', '${altura}', '${genero}', '${caloriaIdeal}', '${aguaIdeal}', '${email}');
     `;
-    console.log("Executando a instrução SQL: \n" + instrucao + instrucao2);
-    database.executar(instrucao);
-    return database.executar(instrucao2);
+    var instrucao3 = `
+    INSERT INTO historico (dtHora, fkUsuarioHistorico) VALUES (now(), '${email}')
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao + instrucao2 + instrucao3);
+    database.executar(instrucao);   
+    database.executar(instrucao2);
+    return database.executar(instrucao3);
 }
 
-function salvar(idade, peso, altura, email) {
-    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", idade, peso, altura, email);
+function salvar(idadePerfil, pesoPerfil, alturaPerfil, caloriaIdealPerfil, aguaIdealPerfil, email) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", idadePerfil, pesoPerfil, alturaPerfil, caloriaIdealPerfil, aguaIdealPerfil, email);
 
     // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
     //  e na ordem de inserção dos dados.
     var instrucao = `
-    UPDATE dados SET idade = '${idade}', peso = '${peso}', altura = '${altura}' where fkUsuario = "'${email}'";
+    UPDATE dados SET idade = '${idadePerfil}', peso = '${pesoPerfil}', altura = '${alturaPerfil}', caloriaIdeal = '${caloriaIdealPerfil}', aguaIdeal = '${aguaIdealPerfil}' where fkUsuarioDados = '${email}';
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
