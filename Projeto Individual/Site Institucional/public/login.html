@@ -74,6 +74,7 @@
                 senhaServer: senhaVar
             })
         }).then(function (resposta) {
+
             console.log("ESTOU NO THEN DO entrar()!")
 
             if (resposta.ok) {
@@ -93,6 +94,13 @@
                     sessionStorage.GENERO_USUARIO = json.genero;
                     sessionStorage.CALORIA_USUARIO = json.caloriaIdeal;
                     sessionStorage.ML_USUARIO = json.aguaIdeal;
+
+                    localStorage.setItem("nome", sessionStorage.NOME_USUARIO)
+                    localStorage.setItem("idade", sessionStorage.IDADE_USUARIO)
+                    localStorage.setItem("peso", sessionStorage.PESO_USUARIO)
+                    localStorage.setItem("altura", sessionStorage.ALTURA_USUARIO)
+                    localStorage.setItem("email", sessionStorage.EMAIL_USUARIO)
+                    localStorage.setItem("genero", sessionStorage.GENERO_USUARIO)
 
                     setTimeout(function () {
                         window.location = "./dashboard/dashboard.html";
@@ -118,7 +126,6 @@
     }
 
     function sumirMensagem() {
-        cardErro.style.display = "none"
     }
 
 </script>

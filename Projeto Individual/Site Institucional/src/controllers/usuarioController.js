@@ -116,35 +116,48 @@ function cadastrar(req, res) {
 }
 
 function salvar(req, res) {
-    var idadePerfil = req.body.idadePerfilServer;
-    var pesoPerfil = req.body.pesoPerfilServer;
-    var alturaPerfil = req.body.alturaPerfilServer;
-    var caloriaIdealPerfil = req.body.caloriaIdeaPerfilServer;
-    var aguaIdealPerfil = req.body.aguaIdealPerfilServer;
+    // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
+    var idade = req.body.idadeServer;
+    var peso = req.body.pesoServer;
+    var altura = req.body.alturaServer;
+    var genero = req.body.generoServer;
+    var caloriaIdeal = req.body.caloriaIdealServer;
+    var aguaIdeal = req.body.aguaIdealServer;
     var email = req.body.emailServer;
 
-    if (email == undefined) {
-        res.status(400).send("Seu email está undefined!");
-    } else if (idadePerfil == undefined) {
+    // Faça as validações dos valores
+    if (idade == undefined) {
         res.status(400).send("Sua idade está undefined!")
-    } else if (pesoPerfil == undefined) {
+    } else if (peso == undefined) {
         res.status(400).send("Seu peso está undefined!")
-    } else if (alturaPerfil == undefined) {
+    } else if (altura == undefined) {
         res.status(400).send("Sua altura está undefined!")
-    } else if (caloriaIdealPerfil == undefined) {
+    } else if (genero == undefined) {
+        res.status(400).send("Seu genero está undefined!")
+    } else if (caloriaIdeal == undefined) {
         res.status(400).send("Suas calorias estão undefined!")
-    } else if (aguaIdealPerfil == undefined) {
+    } else if (aguaIdeal == undefined) {
         res.status(400).send("Seus ml's recomendados estão undefined!")
+    } else if (email == undefined) {
+        res.status(400).send("Seu email está undefined!");
     } else {
-        usuarioModel.salvar(idadePerfil, pesoPerfil, alturaPerfil, caloriaIdealPerfil, aguaIdealPerfil, email) // Assuming there is an 'atualizar' function in the 'usuarioModel'
-            .then(function () {
-                res.status(200).send("Dados atualizados com sucesso!");
-            })
-            .catch(function (erro) {
-                console.log(erro);
-                console.log("\nHouve um erro ao atualizar os dados! Erro: ", erro.sqlMessage);
-                res.status(500).json(erro.sqlMessage);
-            });
+
+        // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
+        usuarioModel.salvar(idade, peso, altura, genero, caloriaIdeal, aguaIdeal, email)
+            .then(
+                function (resultado) {
+                    res.json(resultado);
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log(
+                        "\nHouve um erro ao salvar os dad! Erro: ",
+                        erro.sqlMessage
+                    );
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
     }
 }
 

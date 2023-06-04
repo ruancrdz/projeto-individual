@@ -68,44 +68,47 @@
 </html>
 <script>
     function salvar() {
-        var pesoPerfil = input_peso.value;
-        var idadePerfil = input_idade.value
-        var alturaPerfil = input_altura.value;
+        // div_aguardar.innerHTML = `<img width="100px" src="https://www.superescadas.com.br/wp-content/themes/escadasuper-3xceler/images/loading.gif" id="loading-gif">`;
+        // aguardar();
 
-        var genero = sessionStorage.GENERO_USUARIO;
-        if (pesoPerfil == "" || idadePerfil == "" || alturaPerfil == "") {
-            alert("Por favor, preencha todos os campos!");
-
-            finalizarAguardar();
-            return false;
-        }
+        //Recupere o valor da nova input pelo nome do id
+        // Agora vá para o método fetch logo abaixo
+        var nomeVar = sessionStorage.NOME_USUARIO;
+        var sobrenomeVar = sessionStorage.SOBRENOME_USUARIO;
+        var emailVar = sessionStorage.EMAIL_USUARIO;
+        var senhaVar = sessionStorage.SENHA_USUARIO;
+        var idadeVar = input_idade.value;
+        var pesoVar = input_peso.value;
+        var alturaVar = input_altura.value;
+        var generoVar = sessionStorage.GENERO_USUARIO;
+        var caloriasDiarias = 0
 
         var atividadeFisica = 1.2
         // Calcular TMB, taxa metabólica basal
-        var tmb = Number(0)
-        if (genero == "M") {
-            tmb = 88.36 + (13.4 * peso) + (4.8 * altura) + (5.7 * idade)
-        } else if (genero == "F") {
-            tmb = 447.6 + (9.2 * peso) + (3.1 * altura) - (4.3 * idade)
+        var tmb = 0
+        if (generoVar == "M") {
+            tmb = 88.36 + (13.4 * pesoVar) + (4.8 * alturaVar) + (5.7 * idadeVar)
+        } else if (generoVar == "F") {
+            tmb = 447.6 + (9.2 * pesoVar) + (3.1 * alturaVar) - (4.3 * idadeVar)
         }
 
         var caloriasDiarias = tmb * atividadeFisica - 500
 
-        var caloriaIdealPerfil = caloriasDiarias.toFixed()
+        var caloriaIdeal = caloriasDiarias.toFixed()
 
         var aguaPorQuilo = 30; // quantidade de ml de água recomendada por quilo de peso
-        var aguaIdealPerfil = aguaPorQuilo * peso; // calcula a quantidade recomendada de ml de água
+        var aguaIdeal = aguaPorQuilo * pesoVar; // calcula a quantidade recomendada de ml de água
 
-        var nome = sessionStorage.NOME_USUARIO;
-        var idade = sessionStorage.IDADE_USUARIO;
-        var altura = sessionStorage.ALTURA_USUARIO;
-        var peso = sessionStorage.PESO_USUARIO;
-        var email = sessionStorage.EMAIL_USUARIO;
+        localStorage.setItem("nome", nomeVar)
+        localStorage.setItem("idade", idadeVar)
+        localStorage.setItem("peso", pesoVar)
+        localStorage.setItem("altura", alturaVar)
 
-        ul_nome.innerHTML = `${nome}`
-        ul_idade.innerHTML = `${idade} anos`
-        ul_altura.innerHTML = `${altura}cm`
-        ul_peso.innerHTML = `${peso}kg`
+        ul_nome.innerHTML = `${nomeVar}`
+        ul_idade.innerHTML = `${idadeVar} anos`
+        ul_altura.innerHTML = `${alturaVar}cm`
+        ul_peso.innerHTML = `${pesoVar}kg`
+
 
         // Enviando o valor da nova input
         fetch("/usuarios/salvar", {
@@ -116,13 +119,16 @@
             body: JSON.stringify({
                 // crie um atributo que recebe o valor recuperado aqui
                 // Agora vá para o arquivo routes/usuario.js
-                idadePerfilServer: idadePerfil,
-                pesoPerfilServer: pesoPerfil,
-                alturaPerfilServer: alturaPerfil,
-                caloriaIdealPerfilServer: caloriaIdealPerfil,
-                aguaIdealPerfilServer: aguaIdealPerfil,
-                emailServer: email,
-
+                nomeServer: nomeVar,
+                sobrenomeServer: sobrenomeVar,
+                emailServer: emailVar,
+                senhaServer: senhaVar,
+                idadeServer: idadeVar,
+                pesoServer: pesoVar,
+                alturaServer: alturaVar,
+                generoServer: generoVar,
+                caloriaIdealServer: caloriaIdeal,
+                aguaIdealServer: aguaIdeal
             })
         }).then(function (resposta) {
 
@@ -132,10 +138,14 @@
 
                 alert("Dados salvos com sucesso");
 
+                setTimeout(() => {
+                    window.location = "dashboard.html";
+                }, "2000")
+
                 limparFormulario();
                 finalizarAguardar();
             } else {
-                throw ("Houve um erro ao inserir os dados");
+                throw ("Houve um erro ao tentar realizar o cadastro!");
             }
         }).catch(function (resposta) {
             console.log(`#ERRO: ${resposta}`);
@@ -147,11 +157,17 @@
 
 </script>
 <script>
+    
 
     var nome = sessionStorage.NOME_USUARIO;
     var idade = sessionStorage.IDADE_USUARIO;
     var altura = sessionStorage.ALTURA_USUARIO;
     var peso = sessionStorage.PESO_USUARIO;
+
+    // var nome = localStorage.getItem("nome")
+    // var idade = localStorage.getItem("idade")
+    // var peso = localStorage.getItem("peso")
+    // var altura = localStorage.getItem("altura")
 
     ul_nome.innerHTML = `${nome}`
     ul_idade.innerHTML = `${idade} anos`
