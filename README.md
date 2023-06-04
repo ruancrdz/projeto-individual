@@ -10,7 +10,7 @@ Aqui no nosso repositório, você encontrará projetos interessantes, códigos f
 
 ## Tópicos de Interesse
 
-## Tecnologias Utilizadas: <img src="https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg"
+## Tecnologias Utilizadas: <img src="https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg">
 - **Projetos Destacados:** uma lista dos projetos mais notáveis que sua empresa desenvolveu, com breves descrições.
 - **Contribuições:** informações sobre como outras pessoas podem contribuir para seus projetos ou entrar em contato com a equipe.
 - **Eventos e Palestras:** se sua empresa participa de eventos ou realiza palestras, você pode compartilhar informações sobre essas atividades.
