@@ -40,8 +40,9 @@ select * from historico;
 select concat(usuario.nome, " ",usuario.sobrenome) as nome,
 	   dados.idade,
 	   dados.peso,	
+
 	   dados.altura,
 	   dados.caloriaIdeal,
        dados.aguaIdeal,
        historico.dtHora
-from usuario join dados on email = fkUsuarioDados join historico on email = fkUsuarioHistorico where email = "teste@gmail.com" order by dados.idDados desc limit 1;
+from usuario join dados on email = fkUsuarioDados join historico on email = fkUsuarioHistorico where email = "ruan@gmail.com" order by dados.idDados desc limit 1;

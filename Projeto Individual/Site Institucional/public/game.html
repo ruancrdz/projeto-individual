@@ -31,7 +31,6 @@
             <span class="derrota" id="span_trofeu"></span>
             <span class="derrota" id="span_prata"></span>
             <span class="derrota" id="span_bronze"></span>
-
         </div>
 
         <div class="box-game">
@@ -46,6 +45,17 @@
 
             <p id="timer" class="contador">10</p>
 
+        </div>
+
+        <div class="ranking">
+            <span class="mensagem">Ranking</span>
+            <span>Gabriel Boos - 126 <img height="30px" src="https://cdn-icons-png.flaticon.com/512/5355/5355596.png" alt="Troféu"></span>
+            <span>Davi Lee - 125 <img height="30px" src="https://cdn-icons-png.flaticon.com/512/7645/7645682.png" alt="Medalha de Prata"></span>
+            <span>Gabriel Sanchez - 96 <img height="30px" src="https://cdn-icons-png.flaticon.com/512/7645/7645706.png" alt="Medalha de Bronze"></span>
+            <span>Ruan Cardozo - 88</span>
+            <span>Sarah de Lucia - 86</span>
+            <span>Pedro Primon - 81</span>
+            <span>Eduardo Medina - 74</span>
         </div>
 
     </div>
@@ -83,15 +93,15 @@
         if (score === 1) {
             comecarTimer()
         }
-        if (score > 60) {
+        if (score > 96) {
             span_score.style.color = "chocolate"
             span_bronze.innerHTML = `<img height="100px" src="https://cdn-icons-png.flaticon.com/512/7645/7645706.png" alt="Medalha de Bronze">`
         }
-        if (score > 70) {
+        if (score > 125) {
             span_score.style.color = "silver"
             span_prata.innerHTML = `<img height="100px" src="https://cdn-icons-png.flaticon.com/512/7645/7645682.png" alt="Medalha de Prata">`
         }
-        if (score > 80) {
+        if (score > 126) {
             span_score.style.color = "gold"
             span_trofeu.innerHTML = `<img height="100px" src="https://cdn-icons-png.flaticon.com/512/5355/5355596.png" alt="Troféu">`
         }

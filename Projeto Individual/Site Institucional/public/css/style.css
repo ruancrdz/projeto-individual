@@ -523,7 +523,6 @@ select {
     background-color: rgba(0, 0, 0, 0.7);
     border-bottom: solid red;
     border-radius: 30px;
-    margin: auto;
     margin-top: 2%;
     display: flex;
     flex-direction: column;
@@ -571,18 +570,17 @@ select {
 }
 
 .game .container-game {
-    display: flex
+    display: flex;
+    justify-content: space-evenly;
 }
 
-.game .box-trofeu {
+.game .box-trofeu, .ranking {
     width: 12%;
     height: 450px;
     background-color: rgba(0, 0, 0, 0.7);
     border: solid red;
     border-radius: 30px;
-    margin: auto;
     margin-top: 2%;
-    margin-right: -20%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -592,7 +590,7 @@ select {
     color: white;
 }
 
-.game .box-trofeu .mensagem {
+.game .box-trofeu, .ranking .mensagem {
     font-size: xx-large;
 }
 

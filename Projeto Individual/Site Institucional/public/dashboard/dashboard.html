@@ -132,7 +132,7 @@
                 backgroundColor: "red",
                 borderColor: "black",
                 borderWidth: 1,
-                data: [true, true, false, true, true, true, false],
+                data: [1, 1, 0, 1, 1, 1, 0],
             }
         ]
     };
@@ -203,6 +203,7 @@
     });
 
     function emagrecer() {
+        var caloriaCritico = `${Number(caloria) - 1500}`
 
         if (segunda < 1000) {
             alert("Caloria não pode ser menor que zero")
