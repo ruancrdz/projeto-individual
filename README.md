@@ -1,4 +1,4 @@
-# GYM
+![Header](./github-header-image.png)
 
 Este é o repositório do meu projeto individual, um site de acompanhamento de perda de peso e contagem de calorias. O objetivo deste projeto é fornecer aos usuários uma plataforma onde eles podem se cadastrar, acompanhar seu progresso na perda de peso e monitorar a ingestão de calorias de forma eficaz.
 
