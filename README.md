@@ -31,7 +31,7 @@ Se você deseja executar o projeto localmente, siga estas etapas:
 2. Navegue até o diretório do projeto:
    
    ```bash
-   cd seu-repositorio
+   cd projeto-individual
 
 3. Instale as dependências:
 
